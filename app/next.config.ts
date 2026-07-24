@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
     // The whole site is capped at max-w-[1320px], so even a full-bleed hero
     // image at 3x DPR never needs more than ~1920px — the Next.js defaults
     // go up to 3840, which is pure wasted transform cost/egress here.
+    unoptimized: true,
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
   },
 };
