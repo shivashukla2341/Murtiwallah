@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; }
+    .adm-content { padding: 28px 32px 60px; }
+    .adm-log-row { display: flex; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--color-divider); font-size: 13px; }
+    .adm-log-time { color: color-mix(in srgb, var(--color-text) 55%, transparent); flex: none; width: 110px; }
+  </style>
+</helmet>
+<dc-import name="AdminShell" active="settings" hint-size="226px,100%"></dc-import>
+<div class="adm-body-offset">
+<main class="adm-content" id="main-content">
+  <h1 style="font-size: 24px; margin: 0 0 20px;">Settings</h1>
+
+  <div class="card" style="padding: 20px; margin-bottom: 20px;">
+    <div class="card-kicker">Store Details</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 10px; max-width: 640px;">
+      <div class="field"><label for="st-name">Store name</label><input class="input" id="st-name" value="Murtiwallah" /></div>
+      <div class="field"><label for="st-gst">GST number</label><input class="input" id="st-gst" value="27ABCDE1234F1Z5" /></div>
+      <div class="field"><label for="st-cur">Currency</label><input class="input" id="st-cur" value="INR (₹)" /></div>
+      <div class="field"><label for="st-mail">Support email</label><input class="input" id="st-mail" value="help@murtiwallah.in" /></div>
+    </div>
+    <button type="button" class="btn btn-primary" style="margin-top: 16px;">Save Changes</button>
+  </div>
+
+  <div class="card" style="padding: 20px; margin-bottom: 20px;" id="coupons">
+    <div class="card-kicker">Coupons</div>
+    <table class="table">
+      <thead><tr><th>Code</th><th>Discount</th><th>Used</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>DIWALI20</td><td>20% off</td><td>1,240</td><td><span class="tag tag-neutral">Active</span></td></tr>
+        <tr><td>WHOLESALE5</td><td>5% off, MOQ 50+</td><td>86</td><td><span class="tag tag-neutral">Active</span></td></tr>
+        <tr><td>WELCOME100</td><td>₹100 off first order</td><td>3,402</td><td><span class="tag tag-outline">Expired</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="padding: 20px; margin-bottom: 20px;" id="payments">
+    <div class="card-kicker">Payments</div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 10px 0 18px;">
+      <div><div class="adm-stat-label" style="font-size:12px; color: color-mix(in srgb, var(--color-text) 60%, transparent);">Settled (30d)</div><div style="font-family: var(--font-heading); font-weight: 600; font-size: 22px;">₹61.2L</div></div>
+      <div><div class="adm-stat-label" style="font-size:12px; color: color-mix(in srgb, var(--color-text) 60%, transparent);">Pending Settlement</div><div style="font-family: var(--font-heading); font-weight: 600; font-size: 22px;">₹7.2L</div></div>
+      <div><div class="adm-stat-label" style="font-size:12px; color: color-mix(in srgb, var(--color-text) 60%, transparent);">Refunds (30d)</div><div style="font-family: var(--font-heading); font-weight: 600; font-size: 22px;">₹84,200</div></div>
+    </div>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <label class="radio"><input type="checkbox" checked /><span class="dot"></span>UPI</label>
+      <label class="radio"><input type="checkbox" checked /><span class="dot"></span>Cards</label>
+      <label class="radio"><input type="checkbox" checked /><span class="dot"></span>Net Banking</label>
+      <label class="radio"><input type="checkbox" /><span class="dot"></span>Wallets</label>
+      <label class="radio"><input type="checkbox" /><span class="dot"></span>EMI</label>
+    </div>
+  </div>
+
+  <div class="card" style="padding: 20px; margin-bottom: 20px;" id="users">
+    <div class="card-kicker">Users &amp; Roles</div>
+    <table class="table">
+      <thead><tr><th>Name</th><th>Role</th><th>Last Active</th></tr></thead>
+      <tbody>
+        <tr><td>Rohan Sharma</td><td><span class="tag tag-accent">Owner</span></td><td>Today, 11:04 AM</td></tr>
+        <tr><td>Meera Kapoor</td><td><span class="tag tag-neutral">Catalog Manager</span></td><td>Today, 9:40 AM</td></tr>
+        <tr><td>Arjun Verma</td><td><span class="tag tag-neutral">Support Agent</span></td><td>Yesterday</td></tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-secondary" style="margin-top: 12px;">+ Invite User</button>
+  </div>
+
+  <div class="card" style="padding: 20px; margin-bottom: 20px;" id="logs">
+    <div class="card-kicker">Activity Logs</div>
+    <div class="adm-log-row"><span class="adm-log-time">11:04 AM</span><span>Rohan Sharma updated the Hero Banner headline</span></div>
+    <div class="adm-log-row"><span class="adm-log-time">9:52 AM</span><span>Meera Kapoor archived "Old Festival Banner"</span></div>
+    <div class="adm-log-row"><span class="adm-log-time">9:12 AM</span><span>System: 6 products auto-flagged as low stock</span></div>
+    <div class="adm-log-row" style="border-bottom: none;"><span class="adm-log-time">Yesterday</span><span>Arjun Verma resolved ticket #2291</span></div>
+  </div>
+
+  <div class="card" style="padding: 20px;" id="support">
+    <div class="card-kicker">Support Tickets</div>
+    <table class="table">
+      <thead><tr><th>Ticket</th><th>Customer</th><th>Subject</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>#2294</td><td>Priya Nair</td><td>Damaged item on delivery</td><td><span class="tag tag-accent">Open</span></td></tr>
+        <tr><td>#2293</td><td>Om Decor, Jaipur</td><td>GST invoice correction</td><td><span class="tag tag-accent">Open</span></td></tr>
+        <tr><td>#2291</td><td>Rakesh Mehta</td><td>Order tracking not updating</td><td><span class="tag tag-neutral">Resolved</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+</div>
+
+</x-dc>
+</body>
+</html>

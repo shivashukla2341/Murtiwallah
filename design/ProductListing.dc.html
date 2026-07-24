@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@500;600&display=swap');
+    body { margin: 0; text-wrap: pretty; }
+    .mw-wrap { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px,4vw,56px); }
+    .mw-kicker { font-family: 'Noto Serif Devanagari', var(--font-heading); font-size: 14px; letter-spacing: 0.06em; color: var(--color-accent-700); margin: 0 0 10px; }
+    .mw-filter-head { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text); margin: 0 0 12px; }
+    .mw-check { display: flex; align-items: center; gap: 9px; font-size: 14px; padding: 5px 0; color: color-mix(in srgb, var(--color-text) 82%, transparent); }
+    .mw-check input { accent-color: var(--color-accent); }
+    .mw-prod-card { border: 1px solid var(--color-divider); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: var(--color-text); display: flex; flex-direction: column; transition: box-shadow .25s ease, transform .25s ease; }
+    .mw-prod-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .mw-prod-img { aspect-ratio: 4/5; position: relative; }
+    .mw-prod-body { padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+    .mw-prod-title { font-family: var(--font-heading); font-weight: 600; font-size: 17px; }
+    .mw-prod-meta { font-size: 12px; color: color-mix(in srgb, var(--color-text) 62%, transparent); display: flex; flex-wrap: wrap; gap: 4px 8px; }
+    .mw-prod-price { font-family: var(--font-heading); font-weight: 600; font-size: 19px; margin-top: 2px; }
+    @media (max-width: 980px) { .mw-cat-layout { grid-template-columns: 1fr !important; } .mw-cat-sidebar { display: none !important; } }
+  </style>
+</helmet>
+<dc-import name="Header" active="listing" hint-size="100%,100px"></dc-import>
+
+<section style="padding: 30px 0 10px;">
+  <div class="mw-wrap">
+    <p class="mw-kicker">संपूर्ण संग्रह — The Full Catalogue</p>
+    <h1 style="margin: 0 0 6px;">Shop All Idols &amp; Décor</h1>
+    <p style="font-size: 15px; color: color-mix(in srgb, var(--color-text) 65%, transparent); margin: 0;">2,400+ SKUs across deities, materials and price points — retail quantities and wholesale lots.</p>
+  </div>
+</section>
+
+<section class="mw-wrap mw-cat-layout" style="display: grid; grid-template-columns: 240px 1fr; gap: 40px; padding: 32px 0 80px;">
+  <aside class="mw-cat-sidebar">
+    <div class="mw-filter-head">Category</div>
+    <sc-for list="{{ cats }}" as="c" hint-placeholder-count="8">
+      <label class="mw-check"><input type="checkbox" />{{ c }}</label>
+    </sc-for>
+    <hr class="hr" />
+    <div class="mw-filter-head">Material</div>
+    <sc-for list="{{ materials }}" as="m" hint-placeholder-count="8">
+      <label class="mw-check"><input type="checkbox" />{{ m }}</label>
+    </sc-for>
+    <hr class="hr" />
+    <div class="mw-filter-head">Price Range</div>
+    <div class="field"><input class="input" placeholder="Min ₹" /></div>
+    <div class="field" style="margin-top: 8px;"><input class="input" placeholder="Max ₹" /></div>
+    <hr class="hr" />
+    <div class="mw-filter-head">Occasion</div>
+    <sc-for list="{{ occasions }}" as="o" hint-placeholder-count="4">
+      <label class="mw-check"><input type="checkbox" />{{ o }}</label>
+    </sc-for>
+    <hr class="hr" />
+    <label class="mw-check"><input type="checkbox" />Wholesale / Bulk Only</label>
+    <button type="button" class="btn btn-secondary btn-block" style="margin-top: 14px;">Apply Filters</button>
+  </aside>
+  <div>
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px;">
+      <span style="font-size: 13.5px; color: color-mix(in srgb, var(--color-text) 65%, transparent);">Showing {{ products.length }} of 2,412 pieces</span>
+      <div class="seg">
+        <label class="seg-opt"><input type="radio" name="sort" checked />Popular</label>
+        <label class="seg-opt"><input type="radio" name="sort" />Price ↑</label>
+        <label class="seg-opt"><input type="radio" name="sort" />Newest</label>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;">
+      <sc-for list="{{ products }}" as="p" hint-placeholder-count="9">
+        <a class="mw-prod-card" href="ProductDetail.dc.html">
+          <div class="mw-prod-img"><image-slot id="lp-{{ p.id }}" shape="rect" placeholder="{{ p.name }}" style="width:100%;height:100%;"></image-slot>
+            <span class="tag tag-accent" style="position: absolute; top: 10px; left: 10px;">{{ p.badge }}</span>
+          </div>
+          <div class="mw-prod-body">
+            <div class="mw-prod-title">{{ p.name }}</div>
+            <div class="mw-prod-meta"><span>{{ p.material }}</span><span>·</span><span>{{ p.height }}</span></div>
+            <div class="mw-prod-meta"><span>MOQ {{ p.moq }}</span><span>·</span><span>★ {{ p.rating }}</span></div>
+            <div class="mw-prod-price">₹{{ p.price }}</div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+    <div style="display: flex; justify-content: center; gap: 8px; margin-top: 40px;">
+      <button type="button" class="btn btn-secondary btn-icon">←</button>
+      <button type="button" class="btn btn-primary btn-icon">1</button>
+      <button type="button" class="btn btn-secondary btn-icon">2</button>
+      <button type="button" class="btn btn-secondary btn-icon">3</button>
+      <button type="button" class="btn btn-secondary btn-icon">→</button>
+    </div>
+  </div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,400px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      cats: ['Ganesha','Krishna','Shiva','Durga','Lakshmi','Hanuman','Sai Baba','Buddha'],
+      materials: ['Brass','Bronze','Marble','Wood','Stone','Copper','Silver','Panchdhatu'],
+      occasions: ['Diwali','Wedding','Housewarming','Corporate Gifts'],
+      products: [
+        {id:1, name:'Panchmukhi Hanuman', material:'Brass', height:'18 in', moq:'10 pcs', rating:'4.9', price:'8,400', badge:'Wholesale'},
+        {id:2, name:'Nataraja Shiva', material:'Bronze', height:'24 in', moq:'5 pcs', rating:'4.8', price:'21,200', badge:'Bestseller'},
+        {id:3, name:'Seated Ganesha', material:'White Marble', height:'12 in', moq:'20 pcs', rating:'5.0', price:'6,750', badge:'Wholesale'},
+        {id:4, name:'Radha Krishna', material:'Panchdhatu', height:'15 in', moq:'10 pcs', rating:'4.9', price:'12,900', badge:'New'},
+        {id:5, name:'Standing Durga', material:'Brass', height:'20 in', moq:'8 pcs', rating:'4.7', price:'16,500', badge:'Festival'},
+        {id:6, name:'Lakshmi on Lotus', material:'Silver Plated', height:'9 in', moq:'25 pcs', rating:'4.8', price:'3,100', badge:'Gift'},
+        {id:7, name:'Meditating Buddha', material:'Resin', height:'14 in', moq:'30 pcs', rating:'4.6', price:'1,450', badge:'Decor'},
+        {id:8, name:'Sai Baba Blessing', material:'Marble', height:'16 in', moq:'10 pcs', rating:'4.9', price:'9,800', badge:'Bestseller'},
+        {id:9, name:'Ram Darbar Set', material:'Panchdhatu', height:'12 in', moq:'6 pcs', rating:'5.0', price:'24,000', badge:'Temple Order'},
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

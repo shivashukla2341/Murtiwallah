@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@500;600&display=swap');
+    body { margin: 0; text-wrap: pretty; }
+    .mw-wrap { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px,4vw,56px); }
+    .mw-kicker { font-family: 'Noto Serif Devanagari', var(--font-heading); font-size: 14px; letter-spacing: 0.06em; color: var(--color-accent-700); margin: 0 0 10px; }
+    .mw-h2 { font-size: clamp(28px, 3vw, 38px); margin: 0 0 8px; }
+    .mw-sub { font-size: 15.5px; color: color-mix(in srgb, var(--color-text) 68%, transparent); max-width: 62ch; margin: 0 0 36px; }
+    .mw-section { padding: 68px 0; }
+    .mw-value-card { display: flex; flex-direction: column; gap: 8px; }
+    @media (max-width: 980px) { .mw-about-grid { grid-template-columns: 1fr !important; } .mw-about-4 { grid-template-columns: repeat(2,1fr) !important; } }
+  </style>
+</helmet>
+<dc-import name="Header" active="about" hint-size="100%,100px"></dc-import>
+
+<section style="border-bottom: 1px solid var(--color-divider);">
+  <div class="mw-wrap mw-about-grid" style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; padding: 68px 0;">
+    <div>
+      <p class="mw-kicker">हमारी कहानी — Our Story</p>
+      <h1 style="font-size: clamp(34px,4.4vw,50px); line-height: 1.1; margin: 0 0 20px;">Four Generations at the Same Workbenches</h1>
+      <p style="font-size: 16px; color: color-mix(in srgb, var(--color-text) 68%, transparent); max-width: 50ch; margin: 0;">Murtiwallah began in 1968 as a single Aligarh brass workshop supplying local temples. Today the same karigar families — now grandchildren of the founders — cast, carve and finish every piece we sell, wholesaled to over 10,000 dealers and exported to 42 countries.</p>
+    </div>
+    <div class="plate" style="margin: 0;">
+      <image-slot id="about-hero" shape="rect" style="width:100%;aspect-ratio:6/5;" placeholder="Founder's workshop, 1968 archival photo"></image-slot>
+    </div>
+  </div>
+</section>
+
+<section class="mw-section" style="background: var(--color-surface);">
+  <div class="mw-wrap">
+    <p class="mw-kicker">शिल्प प्रक्रिया — The Craft</p>
+    <h2 class="mw-h2">How a Murti Is Made</h2>
+    <p class="mw-sub">Every material follows its own discipline — but the hand-finishing is universal.</p>
+    <div class="mw-about-4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px;">
+      <sc-for list="{{ process }}" as="p" hint-placeholder-count="4">
+        <div>
+          <div class="plate" style="margin: 0 0 14px;"><image-slot id="proc-{{ p.n }}" shape="rect" style="width:100%;aspect-ratio:4/3;" placeholder="{{ p.title }}"></image-slot></div>
+          <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; margin-bottom: 6px;">{{ p.n }}. {{ p.title }}</div>
+          <p style="font-size: 13.5px; color: color-mix(in srgb, var(--color-text) 65%, transparent); margin: 0;">{{ p.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section class="mw-section">
+  <div class="mw-wrap mw-about-grid" style="display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center;">
+    <div class="plate" style="margin: 0;">
+      <image-slot id="artisan-2" shape="rect" style="width:100%;aspect-ratio:6/5;" placeholder="Artisan finishing a marble idol"></image-slot>
+    </div>
+    <div>
+      <p class="mw-kicker">कारीगर — The Artisans</p>
+      <h2 class="mw-h2">240 Karigars, One Standard</h2>
+      <p style="font-size: 15.5px; color: color-mix(in srgb, var(--color-text) 68%, transparent); max-width: 54ch; margin: 0 0 18px;">Our workshops in Aligarh, Jaipur and Moradabad employ 240 full-time artisans across metal-casting, stone-carving and wood-turning — each piece signed off by a senior karigar before it enters inventory.</p>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 46ch;">
+        <div><div style="font-family: var(--font-heading); font-weight: 600; font-size: 26px; color: var(--color-accent-700);">1968</div><div style="font-size: 13px; color: color-mix(in srgb, var(--color-text) 60%, transparent);">Founded</div></div>
+        <div><div style="font-family: var(--font-heading); font-weight: 600; font-size: 26px; color: var(--color-accent-700);">240+</div><div style="font-size: 13px; color: color-mix(in srgb, var(--color-text) 60%, transparent);">Artisans</div></div>
+        <div><div style="font-family: var(--font-heading); font-weight: 600; font-size: 26px; color: var(--color-accent-700);">3</div><div style="font-size: 13px; color: color-mix(in srgb, var(--color-text) 60%, transparent);">Workshop Cities</div></div>
+        <div><div style="font-family: var(--font-heading); font-weight: 600; font-size: 26px; color: var(--color-accent-700);">42</div><div style="font-size: 13px; color: color-mix(in srgb, var(--color-text) 60%, transparent);">Export Countries</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mw-section" style="background: var(--color-surface);">
+  <div class="mw-wrap">
+    <p class="mw-kicker">मूल्य — Our Values</p>
+    <h2 class="mw-h2">What We Hold To</h2>
+    <div class="mw-about-4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+      <sc-for list="{{ values }}" as="v" hint-placeholder-count="4">
+        <div class="mw-value-card">
+          <div style="font-family: var(--font-heading); font-weight: 600; font-size: 18px;">{{ v.title }}</div>
+          <p style="font-size: 13.5px; color: color-mix(in srgb, var(--color-text) 65%, transparent); margin: 0;">{{ v.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,400px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      process: [
+        {n:1, title:'Design', desc:'Proportions checked against shastra ratios before any material is touched.'},
+        {n:2, title:'Cast or Carve', desc:'Lost-wax casting for metals; hand-chiselling for stone and wood.'},
+        {n:3, title:'Finish', desc:'Faces, eyes and ornamentation are finished entirely by hand.'},
+        {n:4, title:'Inspect', desc:'A senior karigar signs off purity, symmetry and finish.'},
+      ],
+      values: [
+        {title:'Devotion Over Speed', desc:'We decline orders that would compromise hand-finishing quality.'},
+        {title:'Fair to the Karigar', desc:'Artisans are paid per piece at above-market workshop rates.'},
+        {title:'Honest Materials', desc:'Every listing states real material and metal content — no misleading names.'},
+        {title:'Transparent Pricing', desc:'One wholesale price list, no hidden dealer-only discounts.'},
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

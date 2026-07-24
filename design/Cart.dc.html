@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@500;600&display=swap');
+    body { margin: 0; text-wrap: pretty; }
+    .mw-wrap { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px,4vw,56px); }
+    .mw-kicker { font-family: 'Noto Serif Devanagari', var(--font-heading); font-size: 14px; letter-spacing: 0.06em; color: var(--color-accent-700); margin: 0 0 10px; }
+    .mw-crumb { font-size: 13px; color: color-mix(in srgb, var(--color-text) 60%, transparent); }
+    .mw-crumb a { color: inherit; text-decoration: none; }
+    .mw-crumb a:hover { color: var(--color-accent-700); }
+    .mw-cart-row { display: grid; grid-template-columns: 96px 1fr auto auto; gap: 20px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--color-divider); }
+    .mw-cart-thumb { border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-divider); }
+    .mw-qty { display: inline-flex; align-items: center; border: 1px solid var(--color-divider); border-radius: var(--radius-md); }
+    .mw-qty button { width: 34px; height: 34px; border: none; background: transparent; cursor: pointer; font-size: 15px; color: var(--color-text); }
+    .mw-qty button:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); color: var(--color-accent-700); }
+    .mw-qty span { width: 34px; text-align: center; font-size: 14px; }
+    .mw-remove { font-size: 12.5px; color: color-mix(in srgb, var(--color-text) 60%, transparent); background: none; border: none; cursor: pointer; text-decoration: underline; padding: 0; text-underline-offset: 3px; }
+    .mw-remove:hover { color: var(--color-accent-700); }
+    .mw-summary-row { display: flex; justify-content: space-between; font-size: 14px; padding: 8px 0; }
+    @media (max-width: 980px) {
+      .mw-cart-grid { grid-template-columns: 1fr !important; }
+      .mw-cart-row { grid-template-columns: 72px 1fr auto; grid-template-areas: "thumb info price" "thumb qty qty"; row-gap: 10px; }
+      .mw-cart-row .mw-cart-thumb { grid-area: thumb; }
+      .mw-cart-row .mw-cart-info { grid-area: info; }
+      .mw-cart-row .mw-cart-price { grid-area: price; }
+      .mw-cart-row .mw-qty-cell { grid-area: qty; width: fit-content; justify-self: start; }
+    }
+  </style>
+</helmet>
+<dc-import name="Header" active="listing" hint-size="100%,100px"></dc-import>
+<main id="main-content">
+
+<div class="mw-wrap" style="padding-top: 20px;">
+  <div class="mw-crumb"><a href="Home.dc.html">Home</a> &nbsp;/&nbsp; Cart</div>
+</div>
+
+<section style="padding: 20px 0 76px;">
+  <div class="mw-wrap mw-cart-grid" style="display: grid; grid-template-columns: 1fr 380px; gap: 56px; align-items: flex-start;">
+    <div>
+      <h1 style="font-size: 30px; margin: 0 0 6px;">Your Cart</h1>
+      <p style="font-size: 13.5px; color: color-mix(in srgb, var(--color-text) 65%, transparent); margin: 0 0 8px;">{{ items.length }} items</p>
+      <sc-for list="{{ items }}" as="it" hint-placeholder-count="3">
+        <div class="mw-cart-row">
+          <div class="mw-cart-thumb"><image-slot id="cart-{{ it.id }}" shape="rect" style="aspect-ratio:1/1;" placeholder="{{ it.name }}"></image-slot></div>
+          <div class="mw-cart-info">
+            <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px;">{{ it.name }}</div>
+            <div style="font-size: 12.5px; color: color-mix(in srgb, var(--color-text) 65%, transparent); margin: 4px 0 8px;">{{ it.material }} · {{ it.height }}</div>
+            <button type="button" class="mw-remove">Remove</button>
+          </div>
+          <div class="mw-qty-cell mw-qty" role="group" aria-label="Quantity for {{ it.name }}">
+            <button type="button" aria-label="Decrease quantity">−</button>
+            <span>{{ it.qty }}</span>
+            <button type="button" aria-label="Increase quantity">+</button>
+          </div>
+          <div class="mw-cart-price" style="font-family: var(--font-heading); font-weight: 600; font-size: 18px; text-align: right;">₹{{ it.price }}</div>
+        </div>
+      </sc-for>
+      <a href="ProductListing.dc.html" class="btn btn-ghost" style="margin-top: 20px;">← Continue Shopping</a>
+    </div>
+
+    <div class="card elev-md" style="padding: 26px;">
+      <div class="card-kicker">Order Summary</div>
+      <div style="display: flex; gap: 8px; margin: 14px 0 10px;">
+        <input class="input" placeholder="Coupon code" aria-label="Coupon code" />
+        <button type="button" class="btn btn-secondary" style="flex: none;">Apply</button>
+      </div>
+      <hr class="hr" style="margin: 12px 0;" />
+      <div class="mw-summary-row"><span>Subtotal</span><span>₹38,300</span></div>
+      <div class="mw-summary-row"><span>GST (18%)</span><span>₹6,894</span></div>
+      <div class="mw-summary-row"><span>Shipping</span><span>Calculated at checkout</span></div>
+      <hr class="hr" style="margin: 12px 0;" />
+      <div class="mw-summary-row" style="font-family: var(--font-heading); font-weight: 600; font-size: 18px;"><span>Total</span><span>₹45,194</span></div>
+      <a href="Checkout.dc.html" class="btn btn-primary btn-block" style="padding: 13px; margin-top: 16px;">Proceed to Checkout</a>
+      <a href="Wholesale.dc.html" class="btn btn-ghost btn-block" style="margin-top: 8px; text-align: center;">Need 20+ pieces? Get a wholesale quote</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<dc-import name="Footer" hint-size="100%,400px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      items: [
+        {id:1, name:'Panchmukhi Hanuman', material:'Brass', height:'18 in', qty:2, price:'16,800'},
+        {id:2, name:'Seated Ganesha', material:'White Marble', height:'12 in', qty:1, price:'6,750'},
+        {id:3, name:'Radha Krishna', material:'Panchdhatu', height:'15 in', qty:1, price:'12,900'},
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

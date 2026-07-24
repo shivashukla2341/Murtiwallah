@@ -1,0 +1,221 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+  Murtiwallah runs the "Classical" design system: an editorial, book-like
+  system on a soft near-white ground. Every value below is copied verbatim
+  from the design system's source styles.css (the source of truth) — see
+  that folder's readme.md for the system's design direction.
+*/
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-heading);
+  --font-devanagari: var(--font-devanagari);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-divider: var(--divider);
+
+  /* Classical's spacing scale is Tailwind's own 4px unit x 1.15 density
+     ("density 1.15x ... already baked into the --space-* scale" — readme).
+     Overriding the base unit means every numeric utility (p-2, gap-4, ...)
+     lines up with --space-1..8 automatically: p-1=4.6px p-2=9.2px p-3=13.8px
+     p-4=18.4px p-6=27.6px p-8=36.8px. */
+  --spacing: 4.6px;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 7px;
+  --radius-xl: 7px;
+  --radius-2xl: 10px;
+  --radius-3xl: 14px;
+  --radius-4xl: 18px;
+
+  --shadow-sm: 0 1px 2px var(--shadow-tint-14);
+  --shadow-md: 0 3px 10px var(--shadow-tint-16);
+  --shadow-lg: 0 12px 32px var(--shadow-tint-22);
+}
+
+:root {
+  --background: #f3f2f2;
+  --foreground: #201f1d;
+  --card: #f3f2f2;
+  --card-foreground: #201f1d;
+  --popover: #f3f2f2;
+  --popover-foreground: #201f1d;
+  --primary: #b68235;
+  --primary-foreground: #fff3e4;
+  --secondary: #eae9e9;
+  --secondary-foreground: #201f1d;
+  --muted: #eae9e9;
+  --muted-foreground: color-mix(in srgb, #201f1d 60%, transparent);
+  --accent: #fff3e4;
+  --accent-foreground: #5a3b0a;
+  --destructive: #a33b2a;
+  --border: color-mix(in srgb, #201f1d 16%, transparent);
+  --input: color-mix(in srgb, #201f1d 16%, transparent);
+  --ring: #b68235;
+  --divider: color-mix(in srgb, #201f1d 16%, transparent);
+
+  --shadow-tint-14: color-mix(in srgb, #2d2b2b 14%, transparent);
+  --shadow-tint-16: color-mix(in srgb, #2d2b2b 16%, transparent);
+  --shadow-tint-22: color-mix(in srgb, #2d2b2b 22%, transparent);
+
+  --chart-1: #b68235;
+  --chart-2: #e1ad66;
+  --chart-3: #9b9797;
+  --chart-4: #7d5411;
+  --chart-5: #605d5d;
+
+  --sidebar: #2d2b2b;
+  --sidebar-foreground: #d7d3d3;
+  --sidebar-primary: #e1ad66;
+  --sidebar-primary-foreground: #201f1d;
+  --sidebar-accent: #444141;
+  --sidebar-accent-foreground: #f8f4f4;
+  --sidebar-border: #444141;
+  --sidebar-ring: #e1ad66;
+}
+
+/* Tonal ramps, generated in OKLCH on a shared lightness scale (per source).
+   Defined outside @theme inline (static values) so Tailwind emits bg-accent-500,
+   text-neutral-700, etc. as first-class utilities alongside the semantic tokens
+   above. Per the source readme this is a mono accent scheme — accent-2 is a
+   machine-derived stand-in for the same role, so it is not ported separately. */
+@theme {
+  --color-neutral-100: #f8f4f4;
+  --color-neutral-200: #eae7e7;
+  --color-neutral-300: #d7d3d3;
+  --color-neutral-400: #bab6b6;
+  --color-neutral-500: #9b9797;
+  --color-neutral-600: #7d7979;
+  --color-neutral-700: #605d5d;
+  --color-neutral-800: #444141;
+  --color-neutral-900: #2d2b2b;
+
+  --color-accent-100: #fff3e4;
+  --color-accent-200: #ffe3bf;
+  --color-accent-300: #facb8d;
+  --color-accent-400: #e1ad66;
+  --color-accent-500: #c28d41;
+  --color-accent-600: #a06f24;
+  --color-accent-700: #7d5411;
+  --color-accent-800: #5a3b0a;
+  --color-accent-900: #3a270d;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+  }
+  h1 {
+    font-size: 42px;
+  }
+  h2 {
+    font-size: 32px;
+  }
+  h3 {
+    font-size: 25px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+  h5 {
+    font-size: 16px;
+  }
+  h6 {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  :focus {
+    outline: none;
+  }
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--primary) 30%, transparent);
+  }
+}
+
+@layer components {
+  /* Every content photograph is matted through .plate: a warm archival grade
+     inside a thin surface-colored mount, like a tipped-in book plate. */
+  .plate {
+    filter: sepia(0.22) saturate(0.82) contrast(1.05);
+    box-sizing: border-box;
+    border: 6px solid var(--secondary);
+    outline: 1px solid var(--divider);
+  }
+  .hr {
+    height: 1px;
+    border: 0;
+    background: var(--divider);
+  }
+}
+
+/* CSS-only safety net for src/components/motion/reveal.tsx: on mobile,
+   fast/flick scrolling can outrun the scroll-triggered fade-in (or a slow
+   device may not have hydrated its JS yet), leaving sections at opacity:0
+   while already on-screen — a blank flash while scrolling. Forcing full
+   visibility below the tablet breakpoint applies at first paint, before any
+   JS runs, so it can't be outrun. */
+@media (max-width: 767px) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

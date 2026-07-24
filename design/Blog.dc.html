@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@500;600&display=swap');
+    body { margin: 0; text-wrap: pretty; }
+    .mw-wrap { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px,4vw,56px); }
+    .mw-kicker { font-family: 'Noto Serif Devanagari', var(--font-heading); font-size: 14px; letter-spacing: 0.06em; color: var(--color-accent-700); margin: 0 0 10px; }
+    .mw-blog-card { text-decoration: none; color: var(--color-text); display: flex; flex-direction: column; gap: 12px; }
+    .mw-blog-img { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-divider); }
+    .mw-blog-card:hover .mw-blog-img { box-shadow: var(--shadow-md); }
+    .mw-chip { display: inline-flex; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--color-divider); font-size: 13.5px; text-decoration: none; color: var(--color-text); }
+    .mw-chip.active, .mw-chip:hover { border-color: var(--color-accent); color: var(--color-accent-700); }
+    @media (max-width: 980px) { .mw-blog-feat { grid-template-columns: 1fr !important; } }
+  </style>
+</helmet>
+<dc-import name="Header" active="blog" hint-size="100%,100px"></dc-import>
+
+<section style="padding: 44px 0 8px;">
+  <div class="mw-wrap">
+    <p class="mw-kicker">पत्रिका — The Journal</p>
+    <h1 style="margin: 0 0 8px;">The Murtiwallah Journal</h1>
+    <p style="font-size: 15px; color: color-mix(in srgb, var(--color-text) 65%, transparent); max-width: 60ch; margin: 0 0 24px;">Buying guides, material comparisons and vastu notes from our own craft desk.</p>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <sc-for list="{{ tags }}" as="t" hint-placeholder-count="5">
+        <a class="mw-chip {{ t.active }}" href="Blog.dc.html">{{ t.name }}</a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section class="mw-wrap mw-blog-feat" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; padding: 40px 0;">
+  <a href="BlogArticle.dc.html" class="mw-blog-card">
+    <div class="mw-blog-img"><image-slot id="blog-feat" shape="rect" style="width:100%;aspect-ratio:16/10;" placeholder="Featured: How to Choose a Brass Murti"></image-slot></div>
+  </a>
+  <div>
+    <div class="tag tag-accent" style="margin-bottom: 12px;">Buying Guide</div>
+    <h2 style="font-size: 30px; margin: 0 0 10px;">How to Choose a Brass Murti</h2>
+    <p style="font-size: 15px; color: color-mix(in srgb, var(--color-text) 68%, transparent); margin: 0 0 16px;">What to check for casting purity, metal content and finish before you order — for retail buyers and dealers alike.</p>
+    <a href="BlogArticle.dc.html" class="btn btn-ghost">Read the guide →</a>
+  </div>
+</section>
+
+<section class="mw-wrap" style="padding-bottom: 76px;">
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
+    <sc-for list="{{ posts }}" as="p" hint-placeholder-count="5">
+      <a class="mw-blog-card" href="BlogArticle.dc.html">
+        <div class="mw-blog-img"><image-slot id="blog-{{ p.id }}" shape="rect" style="width:100%;aspect-ratio:3/2;" placeholder="{{ p.title }}"></image-slot></div>
+        <div class="tag tag-neutral" style="align-self: flex-start;">{{ p.tag }}</div>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 18px;">{{ p.title }}</div>
+        <p style="font-size: 13.5px; color: color-mix(in srgb, var(--color-text) 62%, transparent); margin: 0;">{{ p.excerpt }}</p>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,400px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      tags: [
+        {name:'All', active:'active'}, {name:'Buying Guides', active:''}, {name:'Comparisons', active:''},
+        {name:'Vastu', active:''}, {name:'Care Guides', active:''},
+      ],
+      posts: [
+        {id:1, tag:'Comparison', title:'Marble vs Brass: What Lasts', excerpt:'Weighing durability, upkeep and cost across a temple lifetime.'},
+        {id:2, tag:'Vastu', title:'Temple Placement Guide for Home', excerpt:'Direction, height and room choice for a home mandir.'},
+        {id:3, tag:'Care Guide', title:'Idol Care: Cleaning Metal Murtis', excerpt:'Safe polishing routines for brass, bronze and panchdhatu.'},
+        {id:4, tag:'Vastu', title:'Vastu Tips for Placing Ganesha', excerpt:'Where — and where not — to place a Ganesh murti at home.'},
+        {id:5, tag:'Buying Guide', title:'Reading a Wholesale Quote', excerpt:'MOQ, tiered pricing and lead times, explained for first-time dealers.'},
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

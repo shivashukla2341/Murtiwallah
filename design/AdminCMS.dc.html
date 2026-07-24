@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    body { margin: 0; }
+    .adm-content { padding: 28px 32px 60px; }
+    .adm-cms-row { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid var(--color-divider); gap: 16px; }
+    .adm-media-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 12px; }
+    @media (max-width: 900px) { .adm-media-grid { grid-template-columns: repeat(3,1fr); } }
+  </style>
+</helmet>
+<dc-import name="AdminShell" active="cms" hint-size="226px,100%"></dc-import>
+<div class="adm-body-offset">
+<main class="adm-content" id="main-content">
+  <h1 style="font-size: 24px; margin: 0 0 4px;">Homepage CMS</h1>
+  <p style="font-size: 13.5px; color: color-mix(in srgb, var(--color-text) 60%, transparent); margin: 0 0 20px;">Manage the sections shown on the storefront homepage</p>
+
+  <div class="card" style="padding: 20px; margin-bottom: 20px;">
+    <div class="card-kicker">Homepage Sections</div>
+    <div class="adm-cms-row"><div><div style="font-family: var(--font-heading); font-weight: 600;">Hero Banner</div><div style="font-size: 12.5px; color: color-mix(in srgb, var(--color-text) 60%, transparent);">"Crafted with Devotion. Delivered with Trust."</div></div><span class="tag tag-neutral">Live</span><button type="button" class="btn btn-ghost">Edit</button></div>
+    <div class="adm-cms-row"><div><div style="font-family: var(--font-heading); font-weight: 600;">Featured Collections</div><div style="font-size: 12.5px; color: color-mix(in srgb, var(--color-text) 60%, transparent);">8 tiles</div></div><span class="tag tag-neutral">Live</span><button type="button" class="btn btn-ghost">Edit</button></div>
+    <div class="adm-cms-row"><div><div style="font-family: var(--font-heading); font-weight: 600;">Testimonials</div><div style="font-size: 12.5px; color: color-mix(in srgb, var(--color-text) 60%, transparent);">4 quotes</div></div><span class="tag tag-neutral">Live</span><button type="button" class="btn btn-ghost">Edit</button></div>
+    <div class="adm-cms-row"><div><div style="font-family: var(--font-heading); font-weight: 600;">Festival Banner — Diwali 2026</div><div style="font-size: 12.5px; color: color-mix(in srgb, var(--color-text) 60%, transparent);">Scheduled 20 Oct \u2013 12 Nov</div></div><span class="tag tag-outline">Scheduled</span><button type="button" class="btn btn-ghost">Edit</button></div>
+    <div class="adm-cms-row" style="border-bottom: none;"><div><div style="font-family: var(--font-heading); font-weight: 600;">Announcement Bar</div><div style="font-size: 12.5px; color: color-mix(in srgb, var(--color-text) 60%, transparent);">"Pan-India Delivery \u00b7 Export Worldwide \u00b7 GST Billing"</div></div><span class="tag tag-neutral">Live</span><button type="button" class="btn btn-ghost">Edit</button></div>
+  </div>
+
+  <div class="card" style="padding: 20px; margin-bottom: 20px;" id="blogs">
+    <div class="card-kicker">Blogs</div>
+    <table class="table">
+      <thead><tr><th>Title</th><th>Category</th><th>Status</th><th>Published</th></tr></thead>
+      <tbody>
+        <tr><td>How to Choose a Brass Murti</td><td>Buying Guide</td><td><span class="tag tag-neutral">Published</span></td><td>12 Jul 2026</td></tr>
+        <tr><td>Marble vs Brass: What Lasts</td><td>Comparison</td><td><span class="tag tag-neutral">Published</span></td><td>3 Jul 2026</td></tr>
+        <tr><td>Diwali 2026 Gifting Trends</td><td>Vastu</td><td><span class="tag tag-accent">Draft</span></td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="padding: 20px;" id="media">
+    <div class="card-kicker">Media Library</div>
+    <div class="adm-media-grid">
+      <sc-for list="{{ media }}" as="m" hint-placeholder-count="6">
+        <image-slot id="media-{{ m }}" shape="rounded" radius="6" style="aspect-ratio:1/1;" placeholder="{{ m }}"></image-slot>
+      </sc-for>
+    </div>
+  </div>
+</main>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return { media: ['hero.jpg','ganesha.jpg','workshop.jpg','warehouse.jpg','diwali-banner.jpg','artisan.jpg'] };
+  }
+}
+</script>
+</body>
+</html>

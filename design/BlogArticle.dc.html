@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@500;600&display=swap');
+    body { margin: 0; text-wrap: pretty; }
+    .mw-wrap { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px,4vw,56px); }
+    .mw-article { max-width: 720px; margin: 0 auto; }
+    .mw-crumb { font-size: 13px; color: color-mix(in srgb, var(--color-text) 60%, transparent); }
+    .mw-crumb a { color: inherit; text-decoration: none; }
+    .mw-crumb a:hover { color: var(--color-accent-700); }
+    .mw-article p { font-size: 16.5px; line-height: 1.75; text-align: justify; hyphens: auto; color: color-mix(in srgb, var(--color-text) 85%, transparent); margin: 0 0 22px; }
+    .mw-article h2 { font-size: 24px; margin: 40px 0 16px; }
+    .mw-blog-card { text-decoration: none; color: var(--color-text); display: flex; flex-direction: column; gap: 12px; }
+    .mw-blog-img { aspect-ratio: 3/2; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-divider); }
+  </style>
+</helmet>
+<dc-import name="Header" active="blog" hint-size="100%,100px"></dc-import>
+<main id="main-content">
+
+<div class="mw-wrap" style="padding-top: 20px;">
+  <div class="mw-article mw-crumb"><a href="Home.dc.html">Home</a> &nbsp;/&nbsp; <a href="Blog.dc.html">Journal</a> &nbsp;/&nbsp; How to Choose a Brass Murti</div>
+</div>
+
+<section style="padding: 20px 0 60px;">
+  <div class="mw-wrap mw-article">
+    <div class="tag tag-accent" style="margin-bottom: 14px;">Buying Guide</div>
+    <h1 style="font-size: clamp(30px,4vw,42px); line-height: 1.15; margin: 0 0 14px;">How to Choose a Brass Murti</h1>
+    <p style="font-size: 14px; color: color-mix(in srgb, var(--color-text) 60%, transparent); margin: 0 0 30px;">By the Murtiwallah Craft Desk · 12 Jul 2026 · 6 min read</p>
+    <div class="plate" style="margin: 0 0 34px;">
+      <image-slot id="article-hero" shape="rect" style="width:100%;aspect-ratio:16/9;" placeholder="Brass murtis on a workshop bench"></image-slot>
+    </div>
+
+    <p>Brass has been the material of choice for Indian murtis for centuries — it takes fine detail well, ages into a warm patina, and survives generations of handling. But not all brass murtis are made equally, and knowing what to check protects you from a piece that looks right in a photo and disappoints in hand.</p>
+
+    <h2>1. Check the Casting Method</h2>
+    <p>Lost-wax casting produces sharper detail in the face, jewellery and drapery than sand-casting. Run a finger along the ornamentation — lost-wax pieces feel crisp at the edges, while sand-cast pieces often feel slightly rounded or soft in the finer lines.</p>
+
+    <h2>2. Weight Is a Purity Signal</h2>
+    <p>A genuine solid-brass murti has real heft. Pieces that feel unusually light for their size may be hollow-cast with thin walls, or blended with a higher zinc content that dulls the gold tone over time. Ask your dealer for the weight-per-inch benchmark for the specific deity and pose.</p>
+
+    <h2>3. Finish and Patina</h2>
+    <p>Antique-gold and dark-patina finishes should sit evenly in every recess — uneven patina pooling in creases is a sign of a rushed finishing pass. A well-finished murti still shows a hint of bright brass at the raised highlights, where hand-polishing would naturally catch the light.</p>
+
+    <h2>4. Ask for a MOQ Sample</h2>
+    <p>For wholesale and temple orders, always request one finished sample before confirming a bulk run. Reputable workshops — Murtiwallah included — will ship or photograph a sample piece so you can verify casting quality before a container-load commitment.</p>
+  </div>
+</section>
+
+<section class="mw-wrap" style="padding-bottom: 76px;">
+  <h2 style="font-size: 24px; margin: 0 0 22px; text-align: center;">More from the Journal</h2>
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto;">
+    <a class="mw-blog-card" href="Blog.dc.html">
+      <div class="mw-blog-img"><image-slot id="rel-blog-1" shape="rect" style="width:100%;height:100%;" placeholder="Marble vs Brass"></image-slot></div>
+      <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px;">Marble vs Brass: What Lasts</div>
+    </a>
+    <a class="mw-blog-card" href="Blog.dc.html">
+      <div class="mw-blog-img"><image-slot id="rel-blog-2" shape="rect" style="width:100%;height:100%;" placeholder="Temple Placement Guide"></image-slot></div>
+      <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px;">Temple Placement Guide for Home</div>
+    </a>
+    <a class="mw-blog-card" href="Blog.dc.html">
+      <div class="mw-blog-img"><image-slot id="rel-blog-3" shape="rect" style="width:100%;height:100%;" placeholder="Idol Care Guide"></image-slot></div>
+      <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px;">Idol Care: Cleaning Metal Murtis</div>
+    </a>
+  </div>
+</section>
+
+</main>
+<dc-import name="Footer" hint-size="100%,400px"></dc-import>
+
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; }
+    .adm-content { padding: 28px 32px 60px; }
+  </style>
+</helmet>
+<dc-import name="AdminShell" active="inventory" hint-size="226px,100%"></dc-import>
+<div class="adm-body-offset">
+<main class="adm-content" id="main-content">
+  <h1 style="font-size: 24px; margin: 0 0 4px;">Inventory</h1>
+  <p style="font-size: 13.5px; color: color-mix(in srgb, var(--color-text) 60%, transparent); margin: 0 0 20px;">Across 3 warehouses — Aligarh, Jaipur, Moradabad</p>
+
+  <div class="card" style="padding: 20px;">
+    <table class="table">
+      <thead><tr><th>SKU</th><th>Product</th><th>Material</th><th>Warehouse</th><th>Stock</th><th>Reorder Level</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>MW-HAN-018-BR</td><td>Panchmukhi Hanuman, 18 in</td><td>Brass</td><td>Aligarh</td><td>214</td><td>50</td><td><span class="tag tag-neutral">In Stock</span></td></tr>
+        <tr><td>MW-SHV-024-BZ</td><td>Nataraja Shiva, 24 in</td><td>Bronze</td><td>Moradabad</td><td>6</td><td>20</td><td><span class="tag tag-accent">Low Stock</span></td></tr>
+        <tr><td>MW-GAN-012-MB</td><td>Seated Ganesha, 12 in</td><td>Marble</td><td>Jaipur</td><td>80</td><td>30</td><td><span class="tag tag-neutral">In Stock</span></td></tr>
+        <tr><td>MW-BEL-L-BR</td><td>Temple Bell, Large</td><td>Brass</td><td>Aligarh</td><td>0</td><td>25</td><td><span class="tag tag-outline">Out of Stock</span></td></tr>
+        <tr><td>MW-BUD-014-RS</td><td>Meditating Buddha, 14 in</td><td>Resin</td><td>Aligarh</td><td>302</td><td>60</td><td><span class="tag tag-neutral">In Stock</span></td></tr>
+        <tr><td>MW-SAI-016-MB</td><td>Sai Baba Blessing, 16 in</td><td>Marble</td><td>Jaipur</td><td>3</td><td>15</td><td><span class="tag tag-accent">Low Stock</span></td></tr>
+        <tr><td>MW-RAM-012-PD</td><td>Ram Darbar Set, 12 in</td><td>Panchdhatu</td><td>Moradabad</td><td>14</td><td>10</td><td><span class="tag tag-neutral">In Stock</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+
+</script>
+</body>
+</html>

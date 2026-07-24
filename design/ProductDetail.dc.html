@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@500;600&display=swap');
+    body { margin: 0; text-wrap: pretty; }
+    .mw-wrap { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px,4vw,56px); }
+    .mw-kicker { font-family: 'Noto Serif Devanagari', var(--font-heading); font-size: 14px; letter-spacing: 0.06em; color: var(--color-accent-700); margin: 0 0 10px; }
+    .mw-crumb { font-size: 13px; color: color-mix(in srgb, var(--color-text) 60%, transparent); }
+    .mw-crumb a { color: inherit; text-decoration: none; }
+    .mw-crumb a:hover { color: var(--color-accent-700); }
+    .mw-thumb { border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-divider); cursor: pointer; }
+    .mw-thumb:hover { border-color: var(--color-accent); }
+    .mw-spec-row { display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid var(--color-divider); font-size: 14px; }
+    .mw-spec-row span:first-child { color: color-mix(in srgb, var(--color-text) 60%, transparent); }
+    .mw-prod-card { border: 1px solid var(--color-divider); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: var(--color-text); display: flex; flex-direction: column; transition: box-shadow .25s ease, transform .25s ease; }
+    .mw-prod-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .mw-prod-img { aspect-ratio: 4/5; }
+    .mw-prod-body { padding: 14px; display: flex; flex-direction: column; gap: 5px; }
+    .mw-prod-title { font-family: var(--font-heading); font-weight: 600; font-size: 16px; }
+    .mw-prod-price { font-family: var(--font-heading); font-weight: 600; font-size: 17px; }
+    @media (max-width: 980px) { .mw-pd-grid { grid-template-columns: 1fr !important; } }
+  </style>
+</helmet>
+<dc-import name="Header" active="listing" hint-size="100%,100px"></dc-import>
+
+<div class="mw-wrap" style="padding-top: 20px;">
+  <div class="mw-crumb"><a href="Home.dc.html">Home</a> &nbsp;/&nbsp; <a href="Category.dc.html">Ganesha Collection</a> &nbsp;/&nbsp; Panchmukhi Hanuman</div>
+</div>
+
+<section class="mw-wrap mw-pd-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 56px; padding: 26px 0 60px;">
+  <div>
+    <div class="plate" style="margin: 0 0 14px;">
+      <image-slot id="pd-main" shape="rect" style="width:100%;aspect-ratio:1/1;" placeholder="Panchmukhi Hanuman — main photo"></image-slot>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+      <sc-for list="{{ thumbs }}" as="t" hint-placeholder-count="4">
+        <div class="mw-thumb"><image-slot id="pd-thumb-{{ t }}" shape="rect" style="aspect-ratio:1/1;" placeholder="View {{ t }}"></image-slot></div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div>
+    <div class="tag tag-accent" style="margin-bottom: 12px;">Wholesale Available</div>
+    <h1 style="margin: 0 0 6px; font-size: 32px;">Panchmukhi Hanuman Murti</h1>
+    <p class="mw-kicker" style="margin-bottom: 16px;">पंचमुखी हनुमान</p>
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+      <span style="color: var(--color-accent);">★★★★★</span>
+      <span style="font-size: 13.5px; color: color-mix(in srgb, var(--color-text) 65%, transparent);">4.9 (312 wholesale reviews)</span>
+    </div>
+    <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px;">
+      <span style="font-family: var(--font-heading); font-weight: 600; font-size: 34px;">₹8,400</span>
+      <span style="font-size: 15px; color: color-mix(in srgb, var(--color-text) 55%, transparent); text-decoration: line-through;">₹10,500</span>
+      <span class="tag tag-outline">20% off</span>
+    </div>
+    <p style="font-size: 13px; color: color-mix(in srgb, var(--color-text) 60%, transparent); margin: 0 0 24px;">Price per piece · GST billed separately · MOQ 10 pcs</p>
+
+    <div class="card" style="margin-bottom: 24px;">
+      <div class="card-kicker">Wholesale price tiers</div>
+      <table class="table">
+        <thead><tr><th>Quantity</th><th>Price / piece</th></tr></thead>
+        <tbody>
+          <tr><td>10 – 49 pcs</td><td>₹8,400</td></tr>
+          <tr><td>50 – 199 pcs</td><td>₹7,650</td></tr>
+          <tr><td>200+ pcs</td><td>₹6,900</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 18px;">
+      <div class="seg">
+        <label class="seg-opt"><input type="radio" name="qty" />−</label>
+        <label class="seg-opt" style="min-width: 40px; justify-content: center;">10</label>
+        <label class="seg-opt"><input type="radio" name="qty" />+</label>
+      </div>
+      <span style="font-size: 13px; color: color-mix(in srgb, var(--color-text) 60%, transparent);">Made to order · ships in 12–15 days</span>
+    </div>
+    <div style="display: flex; gap: 14px; margin-bottom: 30px;">
+      <button type="button" class="btn btn-primary btn-block" style="padding: 13px;">Add to Cart</button>
+      <a href="Wholesale.dc.html" class="btn btn-secondary btn-block" style="padding: 13px; text-align: center;">Request Bulk Quote</a>
+    </div>
+
+    <div class="mw-filter-head" style="text-transform: uppercase; letter-spacing: 0.08em; font-size:12px; margin-bottom: 8px;">Specifications</div>
+    <div>
+      <sc-for list="{{ specs }}" as="s" hint-placeholder-count="6">
+        <div class="mw-spec-row"><span>{{ s.k }}</span><span>{{ s.v }}</span></div>
+      </sc-for>
+    </div>
+
+    <p style="font-size: 14.5px; line-height: 1.6; color: color-mix(in srgb, var(--color-text) 78%, transparent); margin-top: 22px;">Hand-cast in a single mould and individually hand-finished by our Aligarh brass karigars, this five-faced Hanuman murti is suited to home temples, dealer shelves and temple sanctums alike. Every piece is inspected for casting purity and finish before dispatch.</p>
+  </div>
+</section>
+
+<section class="mw-wrap" style="padding-bottom: 70px;">
+  <h2 style="font-size: 26px; margin: 0 0 22px;">You may also like</h2>
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+    <sc-for list="{{ related }}" as="p" hint-placeholder-count="4">
+      <a class="mw-prod-card" href="ProductDetail.dc.html">
+        <div class="mw-prod-img"><image-slot id="rel-{{ p.id }}" shape="rect" placeholder="{{ p.name }}" style="width:100%;height:100%;"></image-slot></div>
+        <div class="mw-prod-body">
+          <div class="mw-prod-title">{{ p.name }}</div>
+          <div class="mw-prod-price">₹{{ p.price }}</div>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,400px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      thumbs: [1,2,3,4],
+      specs: [
+        {k:'Material', v:'Brass'},
+        {k:'Height', v:'18 in'},
+        {k:'Weight', v:'6.2 kg'},
+        {k:'Finish', v:'Antique gold-tone'},
+        {k:'Origin', v:'Aligarh, Uttar Pradesh'},
+        {k:'MOQ', v:'10 pieces'},
+      ],
+      related: [
+        {id:1, name:'Chaturbhuj Hanuman', price:'6,900'},
+        {id:2, name:'Bajrang Bali, Flying', price:'11,200'},
+        {id:3, name:'Hanuman with Gada', price:'5,400'},
+        {id:4, name:'Sankat Mochan Hanuman', price:'9,800'},
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

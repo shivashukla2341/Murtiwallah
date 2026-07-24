@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@500;600&display=swap');
+    body { margin: 0; text-wrap: pretty; }
+    .mw-wrap { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px,4vw,56px); }
+    .mw-crumb { font-size: 13px; color: color-mix(in srgb, var(--color-text) 60%, transparent); }
+    .mw-crumb a { color: inherit; text-decoration: none; }
+    .mw-steps { display: flex; align-items: center; gap: 10px; margin-bottom: 30px; }
+    .mw-step-pill { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+    .mw-step-pill.active { color: var(--color-accent-700); font-weight: 600; }
+    .mw-step-dot { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--color-divider); display: flex; align-items: center; justify-content: center; font-size: 11px; }
+    .mw-step-pill.active .mw-step-dot { border-color: var(--color-accent); color: var(--color-accent-700); }
+    .mw-step-sep { width: 28px; height: 1px; background: var(--color-divider); }
+    .mw-sec-title { font-family: var(--font-heading); font-weight: 600; font-size: 19px; margin: 0 0 16px; }
+    .mw-summary-row { display: flex; justify-content: space-between; font-size: 14px; padding: 8px 0; }
+    .mw-line-item { display: flex; justify-content: space-between; font-size: 13px; color: color-mix(in srgb, var(--color-text) 65%, transparent); padding: 5px 0; }
+    @media (max-width: 980px) { .mw-checkout-grid { grid-template-columns: 1fr !important; } .mw-form-2col { grid-template-columns: 1fr !important; } }
+  </style>
+</helmet>
+<dc-import name="Header" active="listing" hint-size="100%,100px"></dc-import>
+<main id="main-content">
+
+<div class="mw-wrap" style="padding-top: 20px;">
+  <div class="mw-crumb"><a href="Cart.dc.html">Cart</a> &nbsp;/&nbsp; Checkout</div>
+</div>
+
+<section style="padding: 20px 0 76px;">
+  <div class="mw-wrap">
+    <div class="mw-steps">
+      <div class="mw-step-pill active"><span class="mw-step-dot">1</span>Address</div>
+      <div class="mw-step-sep"></div>
+      <div class="mw-step-pill"><span class="mw-step-dot">2</span>Shipping</div>
+      <div class="mw-step-sep"></div>
+      <div class="mw-step-pill"><span class="mw-step-dot">3</span>Payment</div>
+      <div class="mw-step-sep"></div>
+      <div class="mw-step-pill"><span class="mw-step-dot">4</span>Review</div>
+    </div>
+  </div>
+
+  <div class="mw-wrap mw-checkout-grid" style="display: grid; grid-template-columns: 1fr 380px; gap: 56px; align-items: flex-start;">
+    <div>
+      <div class="card" style="padding: 26px; margin-bottom: 24px;">
+        <div class="mw-sec-title">Contact &amp; Shipping Address</div>
+        <div style="display: grid; gap: 16px;">
+          <div class="mw-form-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="field"><label for="co-name">Full name</label><input class="input" id="co-name" placeholder="Your name" /></div>
+            <div class="field"><label for="co-phone">Phone</label><input class="input" id="co-phone" placeholder="+91" /></div>
+          </div>
+          <div class="field"><label for="co-addr">Address</label><input class="input" id="co-addr" placeholder="Flat, street, area" /></div>
+          <div class="mw-form-2col" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+            <div class="field"><label for="co-city">City</label><input class="input" id="co-city" placeholder="City" /></div>
+            <div class="field"><label for="co-state">State</label><input class="input" id="co-state" placeholder="State" /></div>
+            <div class="field"><label for="co-pin">PIN code</label><input class="input" id="co-pin" placeholder="6-digit PIN" /></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="padding: 26px; margin-bottom: 24px;">
+        <div class="mw-sec-title">Business Details <span style="font-family: var(--font-body); font-weight: 400; font-size: 12.5px; color: color-mix(in srgb, var(--color-text) 55%, transparent);">(optional — for GST invoice)</span></div>
+        <div class="mw-form-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="field"><label for="co-biz">Business name</label><input class="input" id="co-biz" placeholder="Company / shop / trust name" /></div>
+          <div class="field"><label for="co-gst">GST number</label><input class="input" id="co-gst" placeholder="22AAAAA0000A1Z5" /></div>
+        </div>
+      </div>
+
+      <div class="card" style="padding: 26px;">
+        <div class="mw-sec-title">Shipping Method</div>
+        <div style="display: grid; gap: 10px;" role="radiogroup" aria-label="Shipping method">
+          <label class="radio" style="justify-content: space-between; border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 14px;"><span style="display:flex; align-items:center; gap: 10px;"><input type="radio" name="ship" checked /><span class="dot"></span>Standard — 6–8 days</span><span>Free</span></label>
+          <label class="radio" style="justify-content: space-between; border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 14px;"><span style="display:flex; align-items:center; gap: 10px;"><input type="radio" name="ship" /><span class="dot"></span>Express — 2–3 days</span><span>₹450</span></label>
+        </div>
+      </div>
+
+      <a href="Payment.dc.html" class="btn btn-primary btn-block" style="padding: 14px; margin-top: 24px;">Continue to Payment →</a>
+    </div>
+
+    <div class="card elev-md" style="padding: 26px;">
+      <div class="card-kicker">Order Summary</div>
+      <div style="margin: 14px 0;">
+        <div class="mw-line-item"><span>Panchmukhi Hanuman × 2</span><span>₹16,800</span></div>
+        <div class="mw-line-item"><span>Seated Ganesha × 1</span><span>₹6,750</span></div>
+        <div class="mw-line-item"><span>Radha Krishna × 1</span><span>₹12,900</span></div>
+      </div>
+      <hr class="hr" style="margin: 12px 0;" />
+      <div class="mw-summary-row"><span>Subtotal</span><span>₹38,300</span></div>
+      <div class="mw-summary-row"><span>GST (18%)</span><span>₹6,894</span></div>
+      <div class="mw-summary-row"><span>Shipping</span><span>Free</span></div>
+      <hr class="hr" style="margin: 12px 0;" />
+      <div class="mw-summary-row" style="font-family: var(--font-heading); font-weight: 600; font-size: 18px;"><span>Total</span><span>₹45,194</span></div>
+    </div>
+  </div>
+</section>
+
+</main>
+<dc-import name="Footer" hint-size="100%,400px"></dc-import>
+
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@500;600&display=swap');
+    body { margin: 0; text-wrap: pretty; }
+    .mw-wrap { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px,4vw,56px); }
+    .mw-filter-head { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text); margin: 0 0 12px; }
+    .mw-check { display: flex; align-items: center; gap: 9px; font-size: 14px; padding: 5px 0; color: color-mix(in srgb, var(--color-text) 82%, transparent); }
+    .mw-check input { accent-color: var(--color-accent); }
+    .mw-prod-card { border: 1px solid var(--color-divider); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: var(--color-text); display: flex; flex-direction: column; transition: box-shadow .25s ease, transform .25s ease; }
+    .mw-prod-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .mw-prod-img { aspect-ratio: 4/5; position: relative; }
+    .mw-prod-body { padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+    .mw-prod-title { font-family: var(--font-heading); font-weight: 600; font-size: 17px; }
+    .mw-prod-meta { font-size: 12px; color: color-mix(in srgb, var(--color-text) 70%, transparent); display: flex; flex-wrap: wrap; gap: 4px 8px; }
+    .mw-prod-price { font-family: var(--font-heading); font-weight: 600; font-size: 19px; margin-top: 2px; }
+    @media (max-width: 980px) { .mw-sr-layout { grid-template-columns: 1fr !important; } .mw-sr-sidebar { display: none !important; } }
+  </style>
+</helmet>
+<dc-import name="Header" active="listing" hint-size="100%,100px"></dc-import>
+<main id="main-content">
+
+<section style="padding: 30px 0 10px;">
+  <div class="mw-wrap">
+    <div style="display: flex; gap: 12px; max-width: 640px; margin-bottom: 18px;">
+      <input class="input" style="min-height: 46px;" type="text" value="ganesha" aria-label="Search Murtiwallah" />
+      <a href="SearchResults.dc.html" class="btn btn-primary" style="min-height: 46px; padding: 0 26px;">Search</a>
+    </div>
+    <h1 style="margin: 0 0 6px; font-size: 24px;">Results for "Ganesha"</h1>
+    <p style="font-size: 14px; color: color-mix(in srgb, var(--color-text) 65%, transparent); margin: 0;">36 pieces found</p>
+  </div>
+</section>
+
+<section class="mw-wrap mw-sr-layout" style="display: grid; grid-template-columns: 240px 1fr; gap: 40px; padding: 32px 0 80px;">
+  <aside class="mw-sr-sidebar">
+    <div class="mw-filter-head">Material</div>
+    <sc-for list="{{ materials }}" as="m" hint-placeholder-count="6">
+      <label class="mw-check"><input type="checkbox" />{{ m }}</label>
+    </sc-for>
+    <hr class="hr" />
+    <div class="mw-filter-head">Price Range</div>
+    <div class="field"><input class="input" placeholder="Min ₹" /></div>
+    <div class="field" style="margin-top: 8px;"><input class="input" placeholder="Max ₹" /></div>
+    <hr class="hr" />
+    <label class="mw-check"><input type="checkbox" />Wholesale / Bulk Only</label>
+    <button type="button" class="btn btn-secondary btn-block" style="margin-top: 14px;">Apply Filters</button>
+  </aside>
+  <div>
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px;">
+      <span style="font-size: 13.5px; color: color-mix(in srgb, var(--color-text) 65%, transparent);">Showing {{ products.length }} of 36</span>
+      <div class="seg">
+        <label class="seg-opt"><input type="radio" name="sort" checked />Relevance</label>
+        <label class="seg-opt"><input type="radio" name="sort" />Price ↑</label>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;">
+      <sc-for list="{{ products }}" as="p" hint-placeholder-count="6">
+        <a class="mw-prod-card" href="ProductDetail.dc.html">
+          <div class="mw-prod-img"><image-slot id="sr-{{ p.id }}" shape="rect" placeholder="{{ p.name }}" style="width:100%;height:100%;"></image-slot>
+            <span class="tag tag-accent" style="position: absolute; top: 10px; left: 10px;">{{ p.badge }}</span>
+          </div>
+          <div class="mw-prod-body">
+            <div class="mw-prod-title">{{ p.name }}</div>
+            <div class="mw-prod-meta"><span>{{ p.material }}</span><span>·</span><span>{{ p.height }}</span></div>
+            <div class="mw-prod-price">₹{{ p.price }}</div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+</main>
+<dc-import name="Footer" hint-size="100%,400px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      materials: ['Brass','Marble','Panchdhatu','Wood','Resin'],
+      products: [
+        {id:1, name:'Bal Ganesh', material:'Brass', height:'8 in', price:'2,150', badge:'Wholesale'},
+        {id:2, name:'Dancing Ganesha', material:'White Marble', height:'14 in', price:'7,400', badge:'Bestseller'},
+        {id:3, name:'Lambodar Ganesh', material:'Panchdhatu', height:'10 in', price:'4,600', badge:'Wholesale'},
+        {id:4, name:'Ganesh on Lotus', material:'Wood', height:'12 in', price:'2,900', badge:'New'},
+        {id:5, name:'Riddhi Siddhi Ganesh', material:'Brass', height:'16 in', price:'9,200', badge:'Wholesale'},
+        {id:6, name:'Priyankar Ganesh', material:'Marble', height:'18 in', price:'11,300', badge:'Bestseller'},
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

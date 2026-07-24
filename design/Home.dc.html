@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@500;600&display=swap');
+    body { margin: 0; text-wrap: pretty; }
+    .mw-wrap { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px,4vw,56px); }
+    .mw-kicker { font-family: 'Noto Serif Devanagari', var(--font-heading); font-size: 14px; letter-spacing: 0.06em; color: var(--color-accent-700); margin: 0 0 10px; }
+    .mw-h2 { font-size: clamp(28px, 3vw, 38px); margin: 0 0 8px; }
+    .mw-sub { font-size: 15.5px; color: color-mix(in srgb, var(--color-text) 70%, transparent); max-width: 62ch; margin: 0 0 36px; }
+    .mw-section { padding: 68px 0; }
+    .mw-cat-card { display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: var(--color-text); }
+    .mw-cat-img-wrap { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-divider); aspect-ratio: 1/1; transition: box-shadow .25s ease, transform .25s ease; }
+    .mw-cat-card:hover .mw-cat-img-wrap { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .mw-cat-name { font-family: var(--font-heading); font-weight: 600; font-size: 17px; }
+    .mw-cat-hindi { font-family: 'Noto Serif Devanagari', serif; font-size: 13px; color: color-mix(in srgb, var(--color-text) 65%, transparent); }
+    .mw-facet { display: inline-flex; align-items: center; gap: 7px; padding: 9px 16px; border-radius: 999px; border: 1px solid var(--color-divider); font-size: 13.5px; color: var(--color-text); text-decoration: none; background: var(--color-bg); }
+    .mw-facet:hover { border-color: var(--color-accent); color: var(--color-accent-700); }
+    .mw-tile { position: relative; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-divider); text-decoration: none; display: block; }
+    .mw-tile-img { aspect-ratio: 4/5; }
+    .mw-tile:hover .mw-tile-img { transform: scale(1.04); }
+    .mw-tile-img { transition: transform .5s ease; }
+    .mw-tile-label { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px; background: linear-gradient(to top, rgba(0,0,0,.55), transparent); color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: 18px; }
+    .mw-mat-chip { display: flex; flex-direction: column; align-items: center; gap: 10px; text-decoration: none; color: var(--color-text); }
+    .mw-mat-swatch { width: 74px; height: 74px; border-radius: 50%; border: 1px solid var(--color-divider); overflow: hidden; }
+    .mw-mat-name { font-size: 13.5px; }
+    .mw-mat-chip:hover .mw-mat-swatch { border-color: var(--color-accent); }
+    .mw-prod-card { border: 1px solid var(--color-divider); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: var(--color-text); display: flex; flex-direction: column; transition: box-shadow .25s ease, transform .25s ease; }
+    .mw-prod-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .mw-prod-img { aspect-ratio: 4/5; position: relative; }
+    .mw-prod-body { padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+    .mw-prod-title { font-family: var(--font-heading); font-weight: 600; font-size: 18px; }
+    .mw-prod-meta { font-size: 12.5px; color: color-mix(in srgb, var(--color-text) 70%, transparent); display: flex; flex-wrap: wrap; gap: 4px 10px; }
+    .mw-prod-price { display: flex; align-items: baseline; gap: 8px; margin-top: 4px; font-family: var(--font-heading); font-weight: 600; font-size: 20px; }
+    .mw-occ-card { border-radius: var(--radius-lg); border: 1px solid var(--color-divider); padding: 22px 18px; text-decoration: none; color: var(--color-text); display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+    .mw-occ-card:hover { border-color: var(--color-accent); }
+    .mw-testi { border: 1px solid var(--color-divider); border-radius: var(--radius-lg); padding: 26px; display: flex; flex-direction: column; gap: 14px; }
+    .mw-blog-card { text-decoration: none; color: var(--color-text); display: flex; flex-direction: column; gap: 12px; }
+    .mw-blog-img { aspect-ratio: 3/2; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-divider); }
+    .mw-trust-icon { width: 26px; height: 26px; margin: 0 auto 10px; color: var(--color-accent-700); }
+    .mw-avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; flex: none; border: 1px solid var(--color-divider); }
+    .mw-testi-top { display: flex; align-items: center; gap: 10px; }
+    @media (max-width: 980px) {
+      .mw-hero-grid, .mw-coll-grid, .mw-bs-grid, .mw-testi-grid { grid-template-columns: repeat(2,1fr) !important; }
+      .mw-hero-grid { grid-template-columns: 1fr !important; }
+      .mw-cat-grid { grid-template-columns: repeat(3,1fr) !important; }
+      .mw-trust-grid { grid-template-columns: repeat(3,1fr) !important; }
+      .mw-occ-grid { grid-template-columns: repeat(2,1fr) !important; }
+      .mw-craft-grid, .mw-ws-grid { grid-template-columns: 1fr !important; }
+    }
+    @media (max-width: 640px) {
+      .mw-section { padding: 44px 0 !important; }
+      .mw-cat-grid, .mw-coll-grid, .mw-bs-grid, .mw-testi-grid, .mw-occ-grid { grid-template-columns: repeat(2,1fr) !important; }
+      .mw-trust-grid { grid-template-columns: repeat(2,1fr) !important; }
+      .mw-blog-grid { grid-template-columns: 1fr !important; }
+      h1 { font-size: 34px !important; }
+    }
+  </style>
+</helmet>
+<dc-import name="Header" active="home" hint-size="100%,100px"></dc-import>
+
+<main id="main-content">
+<section style="position: relative; overflow: hidden; background: var(--color-surface); border-bottom: 1px solid var(--color-divider);">
+  <svg width="100%" height="46" viewBox="0 0 1200 46" preserveAspectRatio="none" style="position: absolute; top: 0; left: 0; opacity: 0.35;">
+    <defs>
+      <pattern id="archRow" width="80" height="46" patternUnits="userSpaceOnUse">
+        <path d="M0 46 L0 26 A40 30 0 0 1 80 26 L80 46" fill="none" stroke="var(--color-accent)" stroke-width="1.2"/>
+      </pattern>
+    </defs>
+    <rect width="1200" height="46" fill="url(#archRow)"/>
+  </svg>
+  <div class="mw-wrap mw-hero-grid" style="position: relative; display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; padding: 78px 0 64px;">
+    <div>
+      <p class="mw-kicker">आस्था • शिल्प • विरासत — Faith, Craft, Heritage</p>
+      <h1 style="font-size: clamp(38px, 5vw, 60px); line-height: 1.08; margin: 0 0 20px;">Crafted with Devotion.<br>Delivered with Trust.</h1>
+      <p style="font-size: 17px; color: color-mix(in srgb, var(--color-text) 68%, transparent); max-width: 46ch; margin: 0 0 30px;">India's largest wholesale destination for premium handcrafted idols and spiritual décor — from home temples to hotel lobbies to Pan-India dealer shelves.</p>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+        <a href="ProductListing.dc.html" class="btn btn-primary" style="padding: 13px 26px; font-size: 15px;">Explore Collection</a>
+        <a href="Wholesale.dc.html" class="btn btn-secondary" style="padding: 13px 26px; font-size: 15px;">Shop Wholesale</a>
+      </div>
+    </div>
+    <div class="plate" style="margin: 0;">
+      <image-slot id="hero-main" shape="rect" style="width:100%;aspect-ratio:6/5;" placeholder="Cinematic hero — handcrafted idols in warm studio light"></image-slot>
+    </div>
+  </div>
+</section>
+
+<section class="mw-section" style="padding-bottom: 44px;">
+  <div class="mw-wrap">
+    <div class="card elev-md" role="search" style="padding: 22px 26px; display: flex; flex-direction: column; gap: 18px;">
+      <div style="display: flex; gap: 12px;">
+        <input class="input" style="min-height: 48px; font-size: 15px;" type="text" placeholder="Search by god name, material, temple, festival…" aria-label="Search Murtiwallah" />
+        <a href="ProductListing.dc.html" class="btn btn-primary" style="min-height: 48px; padding: 0 28px;">Search</a>
+      </div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <sc-for list="{{ facets }}" as="f" hint-placeholder-count="6">
+          <a class="mw-facet" href="ProductListing.dc.html">{{ f }}</a>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mw-section" style="padding-top: 0;">
+  <div class="mw-wrap">
+    <p class="mw-kicker">श्रेणियाँ — Categories</p>
+    <h2 class="mw-h2">Shop by Deity</h2>
+    <p class="mw-sub">Fifteen collections, each carved by artisan families who have worked the same murti tradition for generations.</p>
+    <div class="mw-cat-grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px;">
+      <sc-for list="{{ categories }}" as="c" hint-placeholder-count="10">
+        <a class="mw-cat-card" href="Category.dc.html">
+          <div class="mw-cat-img-wrap"><image-slot id="cat-{{ c.id }}" shape="rect" placeholder="{{ c.name }}"></image-slot></div>
+          <div><div class="mw-cat-name">{{ c.name }}</div><div class="mw-cat-hindi">{{ c.hindi }}</div></div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section class="mw-section" style="background: var(--color-surface);">
+  <div class="mw-wrap">
+    <p class="mw-kicker">विशेष संग्रह — Featured</p>
+    <h2 class="mw-h2">Featured Collections</h2>
+    <p class="mw-sub">Curated edits for the moments that call for something considered.</p>
+    <div class="mw-coll-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+      <sc-for list="{{ collections }}" as="col" hint-placeholder-count="8">
+        <a class="mw-tile" href="ProductListing.dc.html">
+          <div class="mw-tile-img"><image-slot id="coll-{{ col.id }}" shape="rect" placeholder="{{ col.name }}" style="width:100%;height:100%;"></image-slot></div>
+          <div class="mw-tile-label">{{ col.name }}</div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section class="mw-section">
+  <div class="mw-wrap">
+    <p class="mw-kicker">माध्यम — Material</p>
+    <h2 class="mw-h2">Shop by Material</h2>
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; margin-top: 30px;">
+      <sc-for list="{{ materials }}" as="m" hint-placeholder-count="10">
+        <a class="mw-mat-chip" href="ProductListing.dc.html">
+          <div class="mw-mat-swatch"><image-slot id="mat-{{ m }}" shape="circle" placeholder="{{ m }}"></image-slot></div>
+          <span class="mw-mat-name">{{ m }}</span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section class="mw-section" style="background: var(--color-surface);">
+  <div class="mw-wrap">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;">
+      <div>
+        <p class="mw-kicker">बेस्टसेलर — Best Sellers</p>
+        <h2 class="mw-h2" style="margin-bottom: 0;">Best Sellers</h2>
+      </div>
+      <a href="ProductListing.dc.html" class="btn btn-ghost">View all →</a>
+    </div>
+    <p class="mw-sub" style="margin-top: 8px;">Dealer-favourite pieces, ready to ship from stock.</p>
+    <div class="mw-bs-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+      <sc-for list="{{ bestSellers }}" as="p" hint-placeholder-count="4">
+        <a class="mw-prod-card" href="ProductDetail.dc.html">
+          <div class="mw-prod-img"><image-slot id="bs-{{ p.id }}" shape="rect" placeholder="{{ p.name }}" style="width:100%;height:100%;"></image-slot>
+            <span class="tag tag-accent" style="position: absolute; top: 10px; left: 10px;">Wholesale</span>
+          </div>
+          <div class="mw-prod-body">
+            <div class="mw-prod-title">{{ p.name }}</div>
+            <div class="mw-prod-meta"><span>{{ p.material }}</span><span>·</span><span>{{ p.height }}</span><span>·</span><span>{{ p.weight }}</span></div>
+            <div class="mw-prod-meta"><span>MOQ {{ p.moq }}</span><span>·</span><span>{{ p.stock }}</span><span>·</span><span>★ {{ p.rating }}</span></div>
+            <div class="mw-prod-price">₹{{ p.price }} <span style="font-family: var(--font-body); font-weight: 400; font-size: 13px; color: color-mix(in srgb, var(--color-text) 65%, transparent);">/ piece</span></div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section class="mw-section">
+  <div class="mw-wrap">
+    <p class="mw-kicker">अवसर — Occasion</p>
+    <h2 class="mw-h2">Shop by Occasion</h2>
+    <div class="mw-occ-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 30px;">
+      <sc-for list="{{ occasions }}" as="o" hint-placeholder-count="7">
+        <a class="mw-occ-card" href="ProductListing.dc.html">
+          <span style="color: var(--color-accent);">{{ o.icon }}</span>
+          <span style="font-family: var(--font-heading); font-weight: 600; font-size: 17px;">{{ o.name }}</span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section class="mw-section" style="background: var(--color-neutral-900); color: var(--color-neutral-200);">
+  <div class="mw-wrap mw-ws-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;">
+    <div>
+      <p class="mw-kicker" style="color: var(--color-accent-400);">थोक — Wholesale</p>
+      <h2 class="mw-h2" style="color: var(--color-neutral-100);">Bulk &amp; Export Orders, Handled Properly</h2>
+      <p style="font-size: 15.5px; color: var(--color-neutral-400); max-width: 50ch; margin: 0 0 28px;">Temple trusts, hotel groups, exporters and dealers — get GST-billed quotes, MOQ pricing and pan-India logistics from a single desk.</p>
+      <a href="Wholesale.dc.html" class="btn btn-primary" style="padding: 13px 26px;">Request Wholesale Quote</a>
+    </div>
+    <div class="plate" style="margin: 0; border-color: var(--color-neutral-800);">
+      <image-slot id="warehouse" shape="rect" style="width:100%;aspect-ratio:6/5;" placeholder="Warehouse &amp; dispatch floor"></image-slot>
+    </div>
+  </div>
+</section>
+
+<section class="mw-section" style="background: var(--color-surface);">
+  <div class="mw-wrap mw-craft-grid" style="display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center;">
+    <div class="plate" style="margin: 0;">
+      <image-slot id="artisan" shape="rect" style="width:100%;aspect-ratio:6/5;" placeholder="Artisan hand-carving a murti"></image-slot>
+    </div>
+    <div>
+      <p class="mw-kicker">शिल्प कथा — Craftsmanship</p>
+      <h2 class="mw-h2">Every Murti Begins With a Hand, Not a Mould</h2>
+      <p style="font-size: 15.5px; color: color-mix(in srgb, var(--color-text) 68%, transparent); max-width: 54ch; margin: 0 0 22px;">Our karigar families rough-cut stone and cast metal the way their grandparents did — measuring proportion by eye against shastra ratios, then finishing every eye, ornament and fold entirely by hand. A single large murti can take three artisans six weeks.</p>
+      <a href="AboutUs.dc.html" class="btn btn-ghost">Read the full story →</a>
+    </div>
+  </div>
+</section>
+
+<section class="mw-section" style="padding: 52px 0;">
+  <div class="mw-wrap mw-trust-grid" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; text-align: center;">
+    <div>
+      <svg class="mw-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <div style="font-family: var(--font-heading); font-weight: 600; font-size: 26px; color: var(--color-accent-700);">10,000+</div>
+      <div style="font-size: 13px; color: color-mix(in srgb, var(--color-text) 65%, transparent); margin-top: 4px;">Dealers</div>
+    </div>
+    <div>
+      <svg class="mw-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 8V21H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/></svg>
+      <div style="font-family: var(--font-heading); font-weight: 600; font-size: 26px; color: var(--color-accent-700);">50,000+</div>
+      <div style="font-size: 13px; color: color-mix(in srgb, var(--color-text) 65%, transparent); margin-top: 4px;">Products</div>
+    </div>
+    <div>
+      <svg class="mw-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 12h13l-3-3m3 3-3 3"/><path d="M14 6h4l3 5v6h-3"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+      <div style="font-family: var(--font-heading); font-weight: 600; font-size: 26px; color: var(--color-accent-700);">Pan-India</div>
+      <div style="font-size: 13px; color: color-mix(in srgb, var(--color-text) 65%, transparent); margin-top: 4px;">Delivery</div>
+    </div>
+    <div>
+      <svg class="mw-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>
+      <div style="font-family: var(--font-heading); font-weight: 600; font-size: 26px; color: var(--color-accent-700);">Worldwide</div>
+      <div style="font-size: 13px; color: color-mix(in srgb, var(--color-text) 65%, transparent); margin-top: 4px;">Export</div>
+    </div>
+    <div>
+      <svg class="mw-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 2h16v20l-4-2-4 2-4-2-4 2z"/><path d="M8 8h8M8 12h8"/></svg>
+      <div style="font-family: var(--font-heading); font-weight: 600; font-size: 26px; color: var(--color-accent-700);">100%</div>
+      <div style="font-size: 13px; color: color-mix(in srgb, var(--color-text) 65%, transparent); margin-top: 4px;">GST Billing</div>
+    </div>
+    <div>
+      <svg class="mw-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 3 6v6c0 5 4 8 9 10 5-2 9-5 9-10V6z"/></svg>
+      <div style="font-family: var(--font-heading); font-weight: 600; font-size: 26px; color: var(--color-accent-700);">Secure</div>
+      <div style="font-size: 13px; color: color-mix(in srgb, var(--color-text) 65%, transparent); margin-top: 4px;">Payments</div>
+    </div>
+  </div>
+</section>
+
+<section class="mw-section" style="background: var(--color-surface);">
+  <div class="mw-wrap">
+    <p class="mw-kicker">विश्वास — Trusted By</p>
+    <h2 class="mw-h2">What Our Buyers Say</h2>
+    <div class="mw-testi-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 30px;">
+      <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="4">
+        <div class="mw-testi">
+          <p style="font-size: 14.5px; font-style: normal; margin: 0; color: color-mix(in srgb, var(--color-text) 82%, transparent);">"{{ t.quote }}"</p>
+          <div class="mw-testi-top">
+            <div class="mw-avatar"><image-slot id="testi-{{ t.id }}" shape="circle" placeholder="{{ t.name }}"></image-slot></div>
+            <div>
+              <div style="font-family: var(--font-heading); font-weight: 600; font-size: 15px;">{{ t.name }}</div>
+              <div class="tag tag-outline" style="margin-top: 4px;">{{ t.role }}</div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section class="mw-section">
+  <div class="mw-wrap">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between;">
+      <div>
+        <p class="mw-kicker">पत्रिका — Journal</p>
+        <h2 class="mw-h2" style="margin-bottom: 0;">From the Journal</h2>
+      </div>
+      <a href="Blog.dc.html" class="btn btn-ghost">Visit journal →</a>
+    </div>
+    <div class="mw-blog-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 30px;">
+      <sc-for list="{{ blogPosts }}" as="b" hint-placeholder-count="3">
+        <a class="mw-blog-card" href="Blog.dc.html">
+          <div class="mw-blog-img"><image-slot id="home-blog-{{ b.id }}" shape="rect" placeholder="{{ b.title }}" style="width:100%;height:100%;"></image-slot></div>
+          <div class="tag tag-neutral" style="align-self: flex-start;">{{ b.tag }}</div>
+          <div style="font-family: var(--font-heading); font-weight: 600; font-size: 18px;">{{ b.title }}</div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+</main>
+<dc-import name="Footer" hint-size="100%,400px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      facets: ['God Name', 'Material', 'Height', 'Temple', 'Festival', 'Bulk Order'],
+      categories: [
+        {id:'ganesha', name:'Ganesha', hindi:'गणेश'},
+        {id:'krishna', name:'Krishna', hindi:'कृष्ण'},
+        {id:'shiva', name:'Shiva', hindi:'शिव'},
+        {id:'durga', name:'Durga', hindi:'दुर्गा'},
+        {id:'lakshmi', name:'Lakshmi', hindi:'लक्ष्मी'},
+        {id:'hanuman', name:'Hanuman', hindi:'हनुमान'},
+        {id:'saibaba', name:'Sai Baba', hindi:'साईं बाबा'},
+        {id:'buddha', name:'Buddha', hindi:'बुद्ध'},
+        {id:'bells', name:'Temple Bells', hindi:'घंटी'},
+        {id:'showpieces', name:'Metal Showpieces', hindi:'शोपीस'},
+      ],
+      collections: [
+        {id:'wedding', name:'Wedding Gifts'},
+        {id:'corporate', name:'Corporate Gifts'},
+        {id:'temple', name:'Temple Collection'},
+        {id:'luxbrass', name:'Luxury Brass'},
+        {id:'marble', name:'Premium Marble'},
+        {id:'moderndecor', name:'Modern Home Décor'},
+        {id:'handmade', name:'Handmade Collection'},
+        {id:'festival', name:'Festival Specials'},
+      ],
+      materials: ['Brass','Bronze','Marble','Wood','Stone','Copper','Silver','Panchdhatu','Fiber','Resin'],
+      bestSellers: [
+        {id:1, name:'Panchmukhi Hanuman', material:'Brass', height:'18 in', weight:'6.2 kg', moq:'10 pcs', stock:'In stock', rating:'4.9', price:'8,400'},
+        {id:2, name:'Nataraja Shiva', material:'Bronze', height:'24 in', weight:'9.1 kg', moq:'5 pcs', stock:'In stock', rating:'4.8', price:'21,200'},
+        {id:3, name:'Seated Ganesha', material:'White Marble', height:'12 in', weight:'8 kg', moq:'20 pcs', stock:'Made to order', rating:'5.0', price:'6,750'},
+        {id:4, name:'Radha Krishna', material:'Panchdhatu', height:'15 in', weight:'4.5 kg', moq:'10 pcs', stock:'In stock', rating:'4.9', price:'12,900'},
+      ],
+      occasions: [
+        {name:'Diwali', icon:'✦'}, {name:'Navratri', icon:'✦'}, {name:'Ganesh Chaturthi', icon:'✦'},
+        {name:'Housewarming', icon:'✦'}, {name:'Wedding', icon:'✦'}, {name:'Temple Opening', icon:'✦'}, {name:'Corporate Gifts', icon:'✦'},
+      ],
+      testimonials: [
+        {id:1, quote:'Murtiwallah rebuilt our Ganesh Chaturthi supply chain — on-time, every year.', name:'Shree Siddhivinayak Trust', role:'Temple Trust'},
+        {id:2, quote:'Our customers can feel the difference in the finishing. Repeat orders every month.', name:'Om Decor, Jaipur', role:'Retail Shop'},
+        {id:3, quote:'I specify their marble pieces for every farmhouse project now.', name:'Ananya Rao', role:'Interior Designer'},
+        {id:4, quote:'Consistent quality across container shipments — rare in this category.', name:'Dharma Exports LLC', role:'Exporter'},
+      ],
+      blogPosts: [
+        {id:1, tag:'Buying Guide', title:'How to Choose a Brass Murti'},
+        {id:2, tag:'Comparison', title:'Marble vs Brass: What Lasts'},
+        {id:3, tag:'Vastu', title:'Temple Placement Guide for Home'},
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

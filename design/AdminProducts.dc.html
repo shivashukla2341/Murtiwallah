@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    body { margin: 0; }
+    .adm-content { padding: 28px 32px 60px; }
+    .adm-thumb { width: 42px; height: 42px; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--color-divider); flex: none; }
+    .adm-row-name { display: flex; align-items: center; gap: 10px; }
+    .adm-toolbar { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+  </style>
+</helmet>
+<dc-import name="AdminShell" active="products" hint-size="226px,100%"></dc-import>
+<div class="adm-body-offset">
+<main class="adm-content" id="main-content">
+  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+    <div><h1 style="font-size: 24px; margin: 0 0 4px;">Products</h1><p style="font-size: 13.5px; color: color-mix(in srgb, var(--color-text) 60%, transparent); margin: 0;">2,412 SKUs</p></div>
+    <div style="display: flex; gap: 10px;">
+      <button type="button" class="btn btn-secondary">Bulk Import CSV</button>
+      <button type="button" class="btn btn-primary">+ Add Product</button>
+    </div>
+  </div>
+
+  <div class="card" style="padding: 20px;">
+    <div class="adm-toolbar">
+      <input class="input" style="max-width: 280px;" placeholder="Search products…" aria-label="Search products" />
+      <div class="seg"><label class="seg-opt"><input type="radio" name="pstatus" checked />All</label><label class="seg-opt"><input type="radio" name="pstatus" />Active</label><label class="seg-opt"><input type="radio" name="pstatus" />Draft</label><label class="seg-opt"><input type="radio" name="pstatus" />Archived</label></div>
+      <div style="flex: 1;"></div>
+      <button type="button" class="btn btn-secondary">Bulk Export</button>
+    </div>
+    <table class="table">
+      <thead><tr><th><input type="checkbox" aria-label="Select all" /></th><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Actions</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox" aria-label="Select Panchmukhi Hanuman" /></td>
+          <td><div class="adm-row-name"><div class="adm-thumb"><image-slot id="ap-1" shape="rect" placeholder="Panchmukhi Hanuman"></image-slot></div>Panchmukhi Hanuman</div></td>
+          <td>Hanuman</td><td>₹8,400</td><td>214</td><td><span class="tag tag-neutral">Active</span></td>
+          <td><a href="ProductDetail.dc.html" class="btn btn-ghost" style="padding: 4px 10px;">Edit</a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" aria-label="Select Nataraja Shiva" /></td>
+          <td><div class="adm-row-name"><div class="adm-thumb"><image-slot id="ap-2" shape="rect" placeholder="Nataraja Shiva"></image-slot></div>Nataraja Shiva</div></td>
+          <td>Shiva</td><td>₹21,200</td><td>6</td><td><span class="tag tag-neutral">Active</span></td>
+          <td><a href="ProductDetail.dc.html" class="btn btn-ghost" style="padding: 4px 10px;">Edit</a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" aria-label="Select Seated Ganesha" /></td>
+          <td><div class="adm-row-name"><div class="adm-thumb"><image-slot id="ap-3" shape="rect" placeholder="Seated Ganesha"></image-slot></div>Seated Ganesha</div></td>
+          <td>Ganesha</td><td>₹6,750</td><td>80</td><td><span class="tag tag-neutral">Active</span></td>
+          <td><a href="ProductDetail.dc.html" class="btn btn-ghost" style="padding: 4px 10px;">Edit</a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" aria-label="Select Radha Krishna" /></td>
+          <td><div class="adm-row-name"><div class="adm-thumb"><image-slot id="ap-4" shape="rect" placeholder="Radha Krishna"></image-slot></div>Radha Krishna</div></td>
+          <td>Krishna</td><td>₹12,900</td><td>0</td><td><span class="tag tag-outline">Archived</span></td>
+          <td><a href="ProductDetail.dc.html" class="btn btn-ghost" style="padding: 4px 10px;">Edit</a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" aria-label="Select Ram Darbar Set" /></td>
+          <td><div class="adm-row-name"><div class="adm-thumb"><image-slot id="ap-5" shape="rect" placeholder="Ram Darbar Set"></image-slot></div>Ram Darbar Set</div></td>
+          <td>Ram Darbar</td><td>₹24,000</td><td>14</td><td><span class="tag tag-accent">Draft</span></td>
+          <td><a href="ProductDetail.dc.html" class="btn btn-ghost" style="padding: 4px 10px;">Edit</a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" aria-label="Select Meditating Buddha" /></td>
+          <td><div class="adm-row-name"><div class="adm-thumb"><image-slot id="ap-6" shape="rect" placeholder="Meditating Buddha"></image-slot></div>Meditating Buddha</div></td>
+          <td>Buddha</td><td>₹1,450</td><td>302</td><td><span class="tag tag-neutral">Active</span></td>
+          <td><a href="ProductDetail.dc.html" class="btn btn-ghost" style="padding: 4px 10px;">Edit</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="padding: 20px; margin-top: 20px;" id="categories">
+    <div class="card-kicker">Categories &amp; Collections</div>
+    <table class="table">
+      <thead><tr><th>Name</th><th>Type</th><th>Products</th><th>Visibility</th></tr></thead>
+      <tbody>
+        <tr><td>Ganesha</td><td>Category</td><td>148</td><td><span class="tag tag-neutral">Published</span></td></tr>
+        <tr><td>Festival Specials</td><td>Collection</td><td>62</td><td><span class="tag tag-neutral">Published</span></td></tr>
+        <tr><td>Diwali 2026</td><td>Collection</td><td>0</td><td><span class="tag tag-outline">Scheduled</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+
+</script>
+</body>
+</html>

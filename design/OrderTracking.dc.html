@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    body { margin: 0; text-wrap: pretty; }
+    .mw-wrap { max-width: 1000px; margin: 0 auto; padding: 0 clamp(20px,4vw,56px); }
+    .mw-crumb { font-size: 13px; color: color-mix(in srgb, var(--color-text) 60%, transparent); }
+    .mw-crumb a { color: inherit; text-decoration: none; }
+    .mw-track-row { display: flex; gap: 16px; margin-bottom: 4px; }
+    .mw-track-rail { display: flex; flex-direction: column; align-items: center; }
+    .mw-track-dot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--color-divider); flex: none; }
+    .mw-track-dot.done { border-color: var(--color-accent); background: var(--color-accent); }
+    .mw-track-line { width: 2px; flex: 1; background: var(--color-divider); min-height: 40px; }
+    .mw-track-line.done { background: var(--color-accent); }
+    .mw-track-body { padding-bottom: 34px; }
+    .mw-item-row { display: grid; grid-template-columns: 72px 1fr auto; gap: 16px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--color-divider); }
+    .mw-thumb-sm { border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-divider); }
+  </style>
+</helmet>
+<dc-import name="Header" hint-size="100%,100px"></dc-import>
+<main id="main-content">
+
+<div class="mw-wrap" style="padding-top: 20px;">
+  <div class="mw-crumb"><a href="Home.dc.html">Home</a> &nbsp;/&nbsp; Track Order</div>
+</div>
+
+<section style="padding: 20px 0 76px;">
+  <div class="mw-wrap">
+    <h1 style="font-size: 28px; margin: 0 0 4px;">Order #MW-20260723-4471</h1>
+    <p style="font-size: 14px; color: color-mix(in srgb, var(--color-text) 65%, transparent); margin: 0 0 34px;">Placed 23 Jul 2026 · Estimated delivery 29–31 Jul 2026</p>
+
+    <sc-for list="{{ stages }}" as="s" hint-placeholder-count="6">
+      <div class="mw-track-row">
+        <div class="mw-track-rail">
+          <div class="mw-track-dot {{ s.doneClass }}"></div>
+          <div class="mw-track-line {{ s.lineClass }}"></div>
+        </div>
+        <div class="mw-track-body">
+          <div style="font-family: var(--font-heading); font-weight: 600; font-size: 16px; color: {{ s.textColor }};">{{ s.title }}</div>
+          <div style="font-size: 13px; color: color-mix(in srgb, var(--color-text) 60%, transparent); margin-top: 2px;">{{ s.detail }}</div>
+        </div>
+      </div>
+    </sc-for>
+
+    <div class="card" style="padding: 22px; margin-top: 20px;">
+      <div class="card-kicker">Items in this order</div>
+      <div class="mw-item-row">
+        <div class="mw-thumb-sm"><image-slot id="track-1" shape="rect" style="aspect-ratio:1/1;" placeholder="Panchmukhi Hanuman"></image-slot></div>
+        <div><div style="font-family: var(--font-heading); font-weight: 600;">Panchmukhi Hanuman</div><div style="font-size: 12.5px; color: color-mix(in srgb, var(--color-text) 60%, transparent);">Qty 2 · Brass · 18 in</div></div>
+        <div style="font-family: var(--font-heading); font-weight: 600;">₹16,800</div>
+      </div>
+      <div class="mw-item-row" style="border-bottom: none;">
+        <div class="mw-thumb-sm"><image-slot id="track-2" shape="rect" style="aspect-ratio:1/1;" placeholder="Seated Ganesha"></image-slot></div>
+        <div><div style="font-family: var(--font-heading); font-weight: 600;">Seated Ganesha</div><div style="font-size: 12.5px; color: color-mix(in srgb, var(--color-text) 60%, transparent);">Qty 1 · White Marble · 12 in</div></div>
+        <div style="font-family: var(--font-heading); font-weight: 600;">₹6,750</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<dc-import name="Footer" hint-size="100%,400px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const accent = 'var(--color-accent-700)';
+    const muted = 'var(--color-text)';
+    return {
+      stages: [
+        {title:'Order Confirmed', detail:'23 Jul, 10:14 AM', doneClass:'done', lineClass:'done', textColor: accent},
+        {title:'Payment Received', detail:'23 Jul, 10:15 AM', doneClass:'done', lineClass:'done', textColor: accent},
+        {title:'Processing', detail:'23 Jul, 4:40 PM — being hand-finished', doneClass:'done', lineClass:'done', textColor: accent},
+        {title:'Packed', detail:'Awaiting dispatch from Aligarh warehouse', doneClass:'', lineClass:'', textColor: muted},
+        {title:'Shipped', detail:'Not yet dispatched', doneClass:'', lineClass:'', textColor: muted},
+        {title:'Delivered', detail:'Expected 29–31 Jul 2026', doneClass:'', lineClass:'', textColor: muted},
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

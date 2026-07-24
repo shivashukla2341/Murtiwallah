@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; }
+    .adm-sidebar { position: fixed; top: 0; left: 0; bottom: 0; width: 226px; background: var(--color-neutral-900); color: var(--color-neutral-300); overflow-y: auto; z-index: 20; }
+    .adm-brand { display: flex; align-items: baseline; gap: 8px; padding: 18px 20px; border-bottom: 1px solid var(--color-neutral-800); }
+    .adm-group-label { font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-neutral-600); padding: 18px 20px 6px; }
+    .adm-link { display: block; padding: 8px 20px; font-size: 13.5px; color: var(--color-neutral-300); text-decoration: none; min-height: 34px; line-height: 18px; }
+    .adm-link:hover { color: #fff; background: var(--color-neutral-800); }
+    .adm-link.is-active { color: var(--color-accent-400); background: var(--color-neutral-800); border-right: 2px solid var(--color-accent-400); }
+    .adm-topbar { position: fixed; top: 0; left: 226px; right: 0; height: 60px; background: var(--color-bg); border-bottom: 1px solid var(--color-divider); display: flex; align-items: center; gap: 16px; padding: 0 24px; z-index: 10; }
+    .adm-icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: var(--radius-md); color: var(--color-text); background: transparent; border: none; cursor: pointer; }
+    .adm-icon-btn:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); color: var(--color-accent-700); }
+    .adm-body-offset { margin-left: 226px; padding-top: 60px; min-height: 100vh; background: var(--color-bg); }
+    @media (max-width: 900px) { .adm-sidebar { width: 64px; } .adm-link span.adm-label { display: none; } .adm-topbar { left: 64px; } .adm-body-offset { margin-left: 64px; } .adm-group-label { display: none; } }
+  </style>
+</helmet>
+<nav class="adm-sidebar" aria-label="Admin navigation">
+  <a class="adm-brand" href="AdminDashboard.dc.html" style="text-decoration: none; color: #fff;">
+    <span style="font-family: var(--font-heading); font-size: 20px; color: var(--color-accent-400);">ॐ</span>
+    <span style="font-family: var(--font-heading); font-weight: 600; font-size: 17px;"><span class="adm-label">Murtiwallah Admin</span></span>
+  </a>
+  <div class="adm-group-label">Overview</div>
+  <a class="adm-link {{ a.dashboard }}" href="AdminDashboard.dc.html"><span class="adm-label">Dashboard</span></a>
+  <a class="adm-link {{ a.dashboard }}" href="AdminDashboard.dc.html#analytics"><span class="adm-label">Analytics</span></a>
+  <a class="adm-link {{ a.dashboard }}" href="AdminDashboard.dc.html#reports"><span class="adm-label">Reports</span></a>
+  <div class="adm-group-label">Catalog</div>
+  <a class="adm-link {{ a.products }}" href="AdminProducts.dc.html"><span class="adm-label">Products</span></a>
+  <a class="adm-link {{ a.products }}" href="AdminProducts.dc.html#categories"><span class="adm-label">Categories &amp; Collections</span></a>
+  <a class="adm-link {{ a.inventory }}" href="AdminInventory.dc.html"><span class="adm-label">Inventory</span></a>
+  <a class="adm-link {{ a.cms }}" href="AdminCMS.dc.html#media"><span class="adm-label">Media Library</span></a>
+  <div class="adm-group-label">Sales</div>
+  <a class="adm-link {{ a.orders }}" href="AdminOrders.dc.html"><span class="adm-label">Orders</span></a>
+  <a class="adm-link {{ a.customers }}" href="AdminCustomers.dc.html"><span class="adm-label">Customers</span></a>
+  <a class="adm-link {{ a.customers }}" href="AdminCustomers.dc.html#wholesale-leads"><span class="adm-label">Wholesale Leads</span></a>
+  <a class="adm-link {{ a.settings }}" href="AdminSettings.dc.html#coupons"><span class="adm-label">Coupons</span></a>
+  <a class="adm-link {{ a.settings }}" href="AdminSettings.dc.html#payments"><span class="adm-label">Payments</span></a>
+  <div class="adm-group-label">Content</div>
+  <a class="adm-link {{ a.cms }}" href="AdminCMS.dc.html"><span class="adm-label">Homepage CMS</span></a>
+  <a class="adm-link {{ a.cms }}" href="AdminCMS.dc.html#blogs"><span class="adm-label">Blogs</span></a>
+  <div class="adm-group-label">Administration</div>
+  <a class="adm-link {{ a.settings }}" href="AdminSettings.dc.html#users"><span class="adm-label">Users &amp; Roles</span></a>
+  <a class="adm-link {{ a.settings }}" href="AdminSettings.dc.html#logs"><span class="adm-label">Activity Logs</span></a>
+  <a class="adm-link {{ a.settings }}" href="AdminSettings.dc.html#support"><span class="adm-label">Support Tickets</span></a>
+  <a class="adm-link {{ a.settings }}" href="AdminSettings.dc.html"><span class="adm-label">Settings</span></a>
+  <div style="padding: 16px 20px;"><a href="Home.dc.html" class="adm-link" style="padding: 0; font-size: 12.5px; color: var(--color-neutral-500);">← Exit to storefront</a></div>
+</nav>
+<div class="adm-topbar">
+  <input class="input" style="max-width: 320px;" type="text" placeholder="Search orders, products, customers…" aria-label="Admin search" />
+  <div style="flex: 1;"></div>
+  <button type="button" class="adm-icon-btn" aria-label="Notifications" title="Notifications" style="position: relative;">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+    <span aria-hidden="true" style="position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent);"></span>
+  </button>
+  <div style="display: flex; align-items: center; gap: 8px;">
+    <div style="width: 30px; height: 30px; border-radius: 50%; background: var(--color-accent-200); color: var(--color-accent-800); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 600; font-size: 13px;">RS</div>
+    <span style="font-size: 13.5px;">Rohan Sharma</span>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;active&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;dashboard&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;dashboard&quot;,&quot;products&quot;,&quot;orders&quot;,&quot;customers&quot;,&quot;inventory&quot;,&quot;cms&quot;,&quot;settings&quot;]}}">
+class Component extends DCLogic {
+  renderVals() {
+    const active = this.props.active || '';
+    const cls = (name) => active === name ? 'is-active' : '';
+    return {
+      a: {
+        dashboard: cls('dashboard'), products: cls('products'), orders: cls('orders'),
+        customers: cls('customers'), inventory: cls('inventory'), cms: cls('cms'), settings: cls('settings'),
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; text-wrap: pretty; }
+    .mw-wrap { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px,4vw,56px); }
+    .mw-crumb { font-size: 13px; color: color-mix(in srgb, var(--color-text) 60%, transparent); }
+    .mw-crumb a { color: inherit; text-decoration: none; }
+    .mw-steps { display: flex; align-items: center; gap: 10px; margin-bottom: 30px; }
+    .mw-step-pill { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+    .mw-step-pill.active, .mw-step-pill.done { color: var(--color-accent-700); font-weight: 600; }
+    .mw-step-dot { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--color-divider); display: flex; align-items: center; justify-content: center; font-size: 11px; }
+    .mw-step-pill.active .mw-step-dot, .mw-step-pill.done .mw-step-dot { border-color: var(--color-accent); color: var(--color-accent-700); }
+    .mw-step-sep { width: 28px; height: 1px; background: var(--color-divider); }
+    .mw-pay-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+    .mw-pay-tab { padding: 10px 18px; border-radius: 999px; border: 1px solid var(--color-divider); font-size: 13.5px; cursor: pointer; background: transparent; color: var(--color-text); }
+    .mw-pay-tab.active { border-color: var(--color-accent); color: var(--color-accent-700); background: var(--color-accent-100); }
+    .mw-summary-row { display: flex; justify-content: space-between; font-size: 14px; padding: 8px 0; }
+    .mw-secure { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: color-mix(in srgb, var(--color-text) 60%, transparent); margin-top: 14px; }
+    @media (max-width: 980px) { .mw-pay-grid { grid-template-columns: 1fr !important; } }
+  </style>
+</helmet>
+<dc-import name="Header" active="listing" hint-size="100%,100px"></dc-import>
+<main id="main-content">
+
+<div class="mw-wrap" style="padding-top: 20px;">
+  <div class="mw-crumb"><a href="Cart.dc.html">Cart</a> &nbsp;/&nbsp; <a href="Checkout.dc.html">Checkout</a> &nbsp;/&nbsp; Payment</div>
+</div>
+
+<section style="padding: 20px 0 76px;">
+  <div class="mw-wrap">
+    <div class="mw-steps">
+      <div class="mw-step-pill done"><span class="mw-step-dot">✓</span>Address</div>
+      <div class="mw-step-sep"></div>
+      <div class="mw-step-pill done"><span class="mw-step-dot">✓</span>Shipping</div>
+      <div class="mw-step-sep"></div>
+      <div class="mw-step-pill active"><span class="mw-step-dot">3</span>Payment</div>
+      <div class="mw-step-sep"></div>
+      <div class="mw-step-pill"><span class="mw-step-dot">4</span>Review</div>
+    </div>
+  </div>
+
+  <div class="mw-wrap mw-pay-grid" style="display: grid; grid-template-columns: 1fr 380px; gap: 56px; align-items: flex-start;">
+    <div class="card" style="padding: 26px;">
+      <div class="card-kicker">Choose Payment Method</div>
+      <div class="mw-pay-tabs" role="tablist" aria-label="Payment method">
+        <button type="button" class="mw-pay-tab active" role="tab" aria-selected="true">UPI</button>
+        <button type="button" class="mw-pay-tab" role="tab" aria-selected="false">Cards</button>
+        <button type="button" class="mw-pay-tab" role="tab" aria-selected="false">Net Banking</button>
+        <button type="button" class="mw-pay-tab" role="tab" aria-selected="false">Wallet</button>
+        <button type="button" class="mw-pay-tab" role="tab" aria-selected="false">EMI</button>
+      </div>
+      <div style="display: grid; gap: 16px; max-width: 440px;">
+        <div class="field"><label for="pay-upi">UPI ID</label><input class="input" id="pay-upi" placeholder="yourname@upi" /></div>
+        <button type="button" class="btn btn-secondary" style="align-self: flex-start;">Verify UPI ID</button>
+      </div>
+      <div class="mw-secure">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 3 6v6c0 5 4 8 9 10 5-2 9-5 9-10V6z"/></svg>
+        256-bit encrypted · PCI-DSS compliant · your payment details are never stored
+      </div>
+    </div>
+
+    <div class="card elev-md" style="padding: 26px;">
+      <div class="card-kicker">Order Summary</div>
+      <div class="mw-summary-row" style="margin-top: 12px;"><span>Subtotal</span><span>₹38,300</span></div>
+      <div class="mw-summary-row"><span>GST (18%)</span><span>₹6,894</span></div>
+      <div class="mw-summary-row"><span>Shipping</span><span>Free</span></div>
+      <hr class="hr" style="margin: 12px 0;" />
+      <div class="mw-summary-row" style="font-family: var(--font-heading); font-weight: 600; font-size: 18px;"><span>Total</span><span>₹45,194</span></div>
+      <a href="OrderSuccess.dc.html" class="btn btn-primary btn-block" style="padding: 14px; margin-top: 16px;">Pay ₹45,194</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<dc-import name="Footer" hint-size="100%,400px"></dc-import>
+
+</x-dc>
+</body>
+</html>

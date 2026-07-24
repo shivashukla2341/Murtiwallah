@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@500;600&display=swap');
+    body { margin: 0; text-wrap: pretty; }
+    .mw-wrap { max-width: 860px; margin: 0 auto; padding: 0 clamp(20px,4vw,56px); }
+    .mw-kicker { font-family: 'Noto Serif Devanagari', var(--font-heading); font-size: 14px; letter-spacing: 0.06em; color: var(--color-accent-700); margin: 0 0 10px; }
+    .mw-faq-group { margin-bottom: 40px; }
+    .mw-faq-cat { font-family: var(--font-heading); font-weight: 600; font-size: 20px; margin: 0 0 6px; }
+    details.mw-faq { border-bottom: 1px solid var(--color-divider); padding: 16px 0; }
+    details.mw-faq summary { cursor: pointer; font-size: 15.5px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    details.mw-faq summary::-webkit-details-marker { display: none; }
+    details.mw-faq summary::after { content: '+'; font-size: 20px; color: var(--color-accent); flex: none; }
+    details.mw-faq[open] summary::after { content: '−'; }
+    details.mw-faq p { font-size: 14.5px; line-height: 1.7; color: color-mix(in srgb, var(--color-text) 75%, transparent); margin: 12px 0 0; max-width: 68ch; }
+  </style>
+</helmet>
+<dc-import name="Header" hint-size="100%,100px"></dc-import>
+<main id="main-content">
+
+<section style="padding: 44px 0 12px;">
+  <div class="mw-wrap">
+    <p class="mw-kicker">प्रश्न — Frequently Asked</p>
+    <h1 style="margin: 0 0 8px;">Frequently Asked Questions</h1>
+    <p style="font-size: 15px; color: color-mix(in srgb, var(--color-text) 65%, transparent); margin: 0;">Retail and wholesale questions, answered by our support desk.</p>
+  </div>
+</section>
+
+<section class="mw-wrap" style="padding: 30px 0 80px;">
+  <div class="mw-faq-group">
+    <h2 class="mw-faq-cat">Ordering &amp; Products</h2>
+    <details class="mw-faq" open="true"><summary>Are the idols really hand-carved, or machine-made?</summary><p>Every piece is hand-finished by our karigar families — casting or rough-carving may use moulds or basic tools, but every face, ornament and fold is finished entirely by hand.</p></details>
+    <details class="mw-faq"><summary>Can I order a custom size or design?</summary><p>Yes — use the Custom Temple Orders form on our Wholesale page with your reference photo or sketch, deity, size and material, and our design desk will respond within 2 business days.</p></details>
+    <details class="mw-faq"><summary>Do you offer a warranty on metal idols?</summary><p>All brass, bronze and panchdhatu pieces carry a 2-year warranty against casting defects. Marble and stone pieces are covered for structural cracks from manufacturing.</p></details>
+  </div>
+  <div class="mw-faq-group">
+    <h2 class="mw-faq-cat">Wholesale &amp; Bulk</h2>
+    <details class="mw-faq"><summary>What is the minimum order quantity (MOQ)?</summary><p>MOQ varies by product, typically 5–50 pieces per SKU. Each product page lists its specific MOQ and tiered wholesale pricing.</p></details>
+    <details class="mw-faq"><summary>Do you provide GST invoices for bulk orders?</summary><p>Yes, every wholesale and export order is billed with a proper GST invoice, and we support GST number capture at checkout for business buyers.</p></details>
+    <details class="mw-faq"><summary>Can I get a physical sample before a bulk order?</summary><p>Yes — our dealer desk can dispatch a paid sample (adjusted against your final order) within 3–5 business days.</p></details>
+  </div>
+  <div class="mw-faq-group">
+    <h2 class="mw-faq-cat">Shipping &amp; Returns</h2>
+    <details class="mw-faq"><summary>Do you deliver Pan-India and export worldwide?</summary><p>Yes — we ship to every Indian PIN code and export to 42 countries with full customs documentation.</p></details>
+    <details class="mw-faq"><summary>What is your return policy on idols?</summary><p>Retail orders can be returned within 7 days if unused and in original packaging. Custom, made-to-order and bulk wholesale orders are final sale — see our Refund Policy for details.</p></details>
+  </div>
+</section>
+
+</main>
+<dc-import name="Footer" hint-size="100%,400px"></dc-import>
+
+</x-dc>
+</body>
+</html>

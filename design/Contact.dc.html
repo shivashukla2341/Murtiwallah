@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@500;600&display=swap');
+    body { margin: 0; text-wrap: pretty; }
+    .mw-wrap { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px,4vw,56px); }
+    .mw-kicker { font-family: 'Noto Serif Devanagari', var(--font-heading); font-size: 14px; letter-spacing: 0.06em; color: var(--color-accent-700); margin: 0 0 10px; }
+    .mw-h2 { font-size: clamp(28px, 3vw, 38px); margin: 0 0 8px; }
+    .mw-desk-card { border: 1px solid var(--color-divider); border-radius: var(--radius-lg); padding: 22px; display: flex; flex-direction: column; gap: 6px; }
+    @media (max-width: 980px) { .mw-contact-grid { grid-template-columns: 1fr !important; } .mw-desk-grid { grid-template-columns: repeat(2,1fr) !important; } }
+  </style>
+</helmet>
+<dc-import name="Header" active="contact" hint-size="100%,100px"></dc-import>
+
+<section style="padding: 44px 0 20px;">
+  <div class="mw-wrap">
+    <p class="mw-kicker">संपर्क करें — Get in Touch</p>
+    <h1 style="margin: 0 0 8px;">Contact Murtiwallah</h1>
+    <p style="font-size: 15px; color: color-mix(in srgb, var(--color-text) 65%, transparent); max-width: 60ch; margin: 0;">Retail questions, wholesale desks and export enquiries are handled by different teams — reach the right one below, or use the general form.</p>
+  </div>
+</section>
+
+<section class="mw-wrap mw-desk-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 32px 0 56px;">
+  <sc-for list="{{ desks }}" as="d" hint-placeholder-count="4">
+    <div class="mw-desk-card">
+      <div class="tag tag-accent" style="align-self: flex-start;">{{ d.tag }}</div>
+      <div style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; margin-top: 4px;">{{ d.title }}</div>
+      <div style="font-size: 13.5px; color: color-mix(in srgb, var(--color-text) 65%, transparent);">{{ d.phone }}</div>
+      <div style="font-size: 13.5px; color: color-mix(in srgb, var(--color-text) 65%, transparent);">{{ d.email }}</div>
+    </div>
+  </sc-for>
+</section>
+
+<section class="mw-wrap mw-contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 56px; padding-bottom: 76px;">
+  <div class="card elev-md" style="padding: 30px; display: grid; gap: 16px;">
+    <div class="card-kicker">General Enquiry</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      <div class="field"><label for="c-name">Name</label><input class="input" id="c-name" placeholder="Your name" /></div>
+      <div class="field"><label for="c-phone">Phone</label><input class="input" id="c-phone" placeholder="+91" /></div>
+    </div>
+    <div class="field"><label for="c-email">Email</label><input class="input" id="c-email" placeholder="you@example.com" /></div>
+    <div class="field"><label for="c-topic">Enquiry type</label>
+      <div class="seg" role="radiogroup">
+        <label class="seg-opt"><input type="radio" name="topic" checked />Retail</label>
+        <label class="seg-opt"><input type="radio" name="topic" />Wholesale</label>
+        <label class="seg-opt"><input type="radio" name="topic" />Export</label>
+        <label class="seg-opt"><input type="radio" name="topic" />Support</label>
+      </div>
+    </div>
+    <div class="field"><label for="c-msg">Message</label><textarea class="input" id="c-msg" rows="4" placeholder="How can we help?"></textarea></div>
+    <button type="button" class="btn btn-primary btn-block" style="padding: 13px;">Send Message</button>
+  </div>
+  <div>
+    <div class="plate" style="margin: 0 0 20px;">
+      <image-slot id="contact-map" shape="rect" style="width:100%;aspect-ratio:16/10;" placeholder="Map — Aligarh head office &amp; workshops"></image-slot>
+    </div>
+    <div class="mw-filter-head" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px;">Head Office</div>
+    <p style="font-size: 14.5px; color: color-mix(in srgb, var(--color-text) 75%, transparent); margin: 0 0 4px;">Murtiwallah House, Brass Market Road, Aligarh, Uttar Pradesh 202001, India</p>
+    <p style="font-size: 14.5px; color: color-mix(in srgb, var(--color-text) 75%, transparent); margin: 0;">Mon–Sat, 10am – 7pm IST</p>
+  </div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,400px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      desks: [
+        {tag:'Retail', title:'Customer Support', phone:'+91 98100 22345', email:'help@murtiwallah.in'},
+        {tag:'Wholesale', title:'Dealer Desk', phone:'+91 98100 22346', email:'wholesale@murtiwallah.in'},
+        {tag:'Export', title:'Export Desk', phone:'+91 98100 22347', email:'export@murtiwallah.in'},
+        {tag:'Temple Orders', title:'Custom Orders', phone:'+91 98100 22348', email:'temples@murtiwallah.in'},
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

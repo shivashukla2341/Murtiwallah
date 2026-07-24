@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@500;600&display=swap');
+    body { margin: 0; text-wrap: pretty; }
+    .mw-wrap { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px,4vw,56px); }
+    .mw-kicker { font-family: 'Noto Serif Devanagari', var(--font-heading); font-size: 14px; letter-spacing: 0.06em; color: var(--color-accent-700); margin: 0 0 10px; }
+    .mw-wish-card { border: 1px solid var(--color-divider); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; }
+    .mw-wish-img { aspect-ratio: 4/5; position: relative; }
+    .mw-wish-remove { position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; background: #fff; border: 1px solid var(--color-divider); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--color-text); }
+    .mw-wish-remove:hover { color: var(--color-accent-700); border-color: var(--color-accent); }
+    .mw-wish-body { padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+    @media (max-width: 980px) { .mw-wish-grid { grid-template-columns: repeat(2,1fr) !important; } }
+    @media (max-width: 640px) { .mw-wish-grid { grid-template-columns: 1fr !important; } }
+  </style>
+</helmet>
+<dc-import name="Header" hint-size="100%,100px"></dc-import>
+<main id="main-content">
+
+<section style="padding: 44px 0 12px;">
+  <div class="mw-wrap">
+    <p class="mw-kicker">पसंदीदा — Saved For Later</p>
+    <h1 style="margin: 0 0 6px;">Your Wishlist</h1>
+    <p style="font-size: 14px; color: color-mix(in srgb, var(--color-text) 65%, transparent); margin: 0;">{{ items.length }} saved pieces</p>
+  </div>
+</section>
+
+<section class="mw-wrap mw-wish-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 26px 0 80px;">
+  <sc-for list="{{ items }}" as="it" hint-placeholder-count="4">
+    <div class="mw-wish-card">
+      <div class="mw-wish-img">
+        <image-slot id="wish-{{ it.id }}" shape="rect" placeholder="{{ it.name }}" style="width:100%;height:100%;"></image-slot>
+        <button type="button" class="mw-wish-remove" aria-label="Remove {{ it.name }} from wishlist">✕</button>
+      </div>
+      <div class="mw-wish-body">
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 16px;">{{ it.name }}</div>
+        <div style="font-size: 12.5px; color: color-mix(in srgb, var(--color-text) 65%, transparent);">{{ it.material }} · {{ it.height }}</div>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 18px;">₹{{ it.price }}</div>
+        <button type="button" class="btn btn-primary btn-block" style="margin-top: 4px;">Move to Cart</button>
+      </div>
+    </div>
+  </sc-for>
+</section>
+
+</main>
+<dc-import name="Footer" hint-size="100%,400px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      items: [
+        {id:1, name:'Nataraja Shiva', material:'Bronze', height:'24 in', price:'21,200'},
+        {id:2, name:'Standing Durga', material:'Brass', height:'20 in', price:'16,500'},
+        {id:3, name:'Sai Baba Blessing', material:'Marble', height:'16 in', price:'9,800'},
+        {id:4, name:'Lakshmi on Lotus', material:'Silver Plated', height:'9 in', price:'3,100'},
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

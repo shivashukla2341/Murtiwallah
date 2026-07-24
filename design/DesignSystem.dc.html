@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@500;600&display=swap');
+    body { margin: 0; text-wrap: pretty; }
+    .mw-wrap { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px,4vw,56px); }
+    .mw-kicker { font-family: 'Noto Serif Devanagari', var(--font-heading); font-size: 14px; letter-spacing: 0.06em; color: var(--color-accent-700); margin: 0 0 10px; }
+    .mw-ds-section { padding: 52px 0; border-bottom: 1px solid var(--color-divider); }
+    .mw-ds-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 0 0 16px; }
+    .mw-swatch { height: 68px; border-radius: var(--radius-md); display: flex; align-items: flex-end; padding: 8px; font-size: 11px; font-family: ui-monospace, monospace; border: 1px solid var(--color-divider); }
+    .mw-swatch-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 8px; }
+    .mw-prod-card { border: 1px solid var(--color-divider); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: var(--color-text); display: flex; flex-direction: column; width: 220px; }
+    .mw-prod-img { aspect-ratio: 4/5; position: relative; }
+    .mw-prod-body { padding: 14px; display: flex; flex-direction: column; gap: 5px; }
+  </style>
+</helmet>
+<dc-import name="Header" hint-size="100%,100px"></dc-import>
+
+<section style="padding: 44px 0 8px;">
+  <div class="mw-wrap">
+    <p class="mw-kicker">डिज़ाइन प्रणाली — Design System</p>
+    <h1 style="margin: 0 0 8px;">Murtiwallah Design System</h1>
+    <p style="font-size: 15px; color: color-mix(in srgb, var(--color-text) 65%, transparent); max-width: 66ch; margin: 0;">Built on the Classical editorial system — Cormorant Garamond over Lora, hairline structure, gold as stroke not fill — extended with a warm Devanagari kicker for spiritual context. Every token below is a live CSS variable; change it in one place and the whole site follows.</p>
+  </div>
+</section>
+
+<section class="mw-ds-section">
+  <div class="mw-wrap">
+    <p class="mw-ds-label">Color — Accent Ramp (temple gold)</p>
+    <div class="mw-swatch-grid">
+      <div class="mw-swatch" style="background: var(--color-accent-100); color: var(--color-text);">100</div>
+      <div class="mw-swatch" style="background: var(--color-accent-200); color: var(--color-text);">200</div>
+      <div class="mw-swatch" style="background: var(--color-accent-300); color: var(--color-text);">300</div>
+      <div class="mw-swatch" style="background: var(--color-accent-400); color: #fff;">400</div>
+      <div class="mw-swatch" style="background: var(--color-accent-500); color: #fff;">500</div>
+      <div class="mw-swatch" style="background: var(--color-accent-600); color: #fff;">600</div>
+      <div class="mw-swatch" style="background: var(--color-accent-700); color: #fff;">700</div>
+      <div class="mw-swatch" style="background: var(--color-accent-800); color: #fff;">800</div>
+      <div class="mw-swatch" style="background: var(--color-accent-900); color: #fff;">900</div>
+    </div>
+    <p class="mw-ds-label" style="margin-top: 30px;">Neutral Ramp (charcoal / ivory)</p>
+    <div class="mw-swatch-grid">
+      <div class="mw-swatch" style="background: var(--color-neutral-100); color: var(--color-text);">100</div>
+      <div class="mw-swatch" style="background: var(--color-neutral-200); color: var(--color-text);">200</div>
+      <div class="mw-swatch" style="background: var(--color-neutral-300); color: var(--color-text);">300</div>
+      <div class="mw-swatch" style="background: var(--color-neutral-400); color: var(--color-text);">400</div>
+      <div class="mw-swatch" style="background: var(--color-neutral-500); color: #fff;">500</div>
+      <div class="mw-swatch" style="background: var(--color-neutral-600); color: #fff;">600</div>
+      <div class="mw-swatch" style="background: var(--color-neutral-700); color: #fff;">700</div>
+      <div class="mw-swatch" style="background: var(--color-neutral-800); color: #fff;">800</div>
+      <div class="mw-swatch" style="background: var(--color-neutral-900); color: #fff;">900</div>
+    </div>
+    <p style="font-size: 13px; color: color-mix(in srgb, var(--color-text) 60%, transparent); max-width: 70ch; margin-top: 16px;">Base ground <code>#f3f2f2</code> (warm ivory), text <code>#201f1d</code> (charcoal), accent <code>#b68235</code> (temple gold). Gold is applied as stroke, underline and small filled marks — never as a large fill — per the bound Classical system.</p>
+  </div>
+</section>
+
+<section class="mw-ds-section">
+  <div class="mw-wrap">
+    <p class="mw-ds-label">Typography</p>
+    <div style="display: grid; gap: 18px;">
+      <div><span style="font-family: var(--font-heading); font-weight: 600; font-size: 46px;">Crafted with Devotion</span><div class="mw-ds-label" style="margin: 4px 0 0;">H1 · Cormorant Garamond 600 · 46px</div></div>
+      <div><span style="font-family: var(--font-heading); font-weight: 600; font-size: 32px;">Shop by Deity</span><div class="mw-ds-label" style="margin: 4px 0 0;">H2 · Cormorant Garamond 600 · 32px</div></div>
+      <div><span style="font-family: var(--font-heading); font-weight: 600; font-size: 22px;">Panchmukhi Hanuman Murti</span><div class="mw-ds-label" style="margin: 4px 0 0;">H3 · Cormorant Garamond 600 · 22px</div></div>
+      <div><span style="font-family: var(--font-body); font-size: 16px;">Hand-cast in a single mould and individually finished by our Aligarh karigars.</span><div class="mw-ds-label" style="margin: 4px 0 0;">Body · Lora 400 · 16px</div></div>
+      <div><span class="mw-kicker" style="font-size: 16px;">आस्था • शिल्प • विरासत</span><div class="mw-ds-label" style="margin: 4px 0 0;">Devanagari micro-accent · Noto Serif Devanagari 600 · accent-700</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="mw-ds-section">
+  <div class="mw-wrap">
+    <p class="mw-ds-label">Spacing Scale</p>
+    <div style="display: flex; align-items: flex-end; gap: 10px;">
+      <sc-for list="{{ spacing }}" as="s" hint-placeholder-count="6">
+        <div style="text-align: center;">
+          <div style="width: {{ s.px }}; height: {{ s.px }}; background: var(--color-accent-200); border: 1px solid var(--color-accent); border-radius: 2px;"></div>
+          <div class="mw-ds-label" style="margin: 6px 0 0;">{{ s.name }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section class="mw-ds-section">
+  <div class="mw-wrap">
+    <p class="mw-ds-label">Buttons</p>
+    <div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center;">
+      <button type="button" class="btn btn-primary">Primary Action</button>
+      <button type="button" class="btn btn-secondary">Secondary</button>
+      <button type="button" class="btn btn-ghost">Ghost</button>
+      <button type="button" class="btn btn-primary" disabled>Disabled</button>
+      <button type="button" class="btn btn-icon btn-secondary">→</button>
+    </div>
+    <p class="mw-ds-label" style="margin-top: 30px;">Badges &amp; Tags</p>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <span class="tag tag-accent">Wholesale</span>
+      <span class="tag tag-neutral">Buying Guide</span>
+      <span class="tag tag-outline">20% off</span>
+      <span class="tag tag-accent-2">Bestseller</span>
+    </div>
+  </div>
+</section>
+
+<section class="mw-ds-section">
+  <div class="mw-wrap">
+    <p class="mw-ds-label">Product Card</p>
+    <a class="mw-prod-card" href="ProductDetail.dc.html">
+      <div class="mw-prod-img"><image-slot id="ds-prod" shape="rect" placeholder="Product photo" style="width:100%;height:100%;"></image-slot>
+        <span class="tag tag-accent" style="position: absolute; top: 10px; left: 10px;">Wholesale</span>
+      </div>
+      <div class="mw-prod-body">
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 16px;">Seated Ganesha</div>
+        <div style="font-size: 12px; color: color-mix(in srgb, var(--color-text) 62%, transparent);">White Marble · 12 in</div>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 18px; margin-top: 2px;">₹6,750</div>
+      </div>
+    </a>
+    <p class="mw-ds-label" style="margin-top: 26px;">Filters</p>
+    <label class="mw-ds-label" style="display: inline-flex; align-items: center; gap: 9px; font-size: 14px; text-transform: none; letter-spacing: 0; color: var(--color-text);"><input type="checkbox" style="accent-color: var(--color-accent);" />Brass</label>
+  </div>
+</section>
+
+<section class="mw-ds-section" style="border-bottom: none;">
+  <div class="mw-wrap">
+    <p class="mw-ds-label">Motion</p>
+    <p style="font-size: 14px; color: color-mix(in srgb, var(--color-text) 68%, transparent); max-width: 70ch;">Cards lift 3–4px with an added shadow on hover (250ms ease); collection tiles scale their image 1.04× (500ms ease); links and nav items shift to accent-700. No bounce, no scale beyond 1.05× — restrained, editorial motion in keeping with the system.</p>
+  </div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,400px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      spacing: [
+        {name:'space-1', px:'4.6px'}, {name:'space-2', px:'9.2px'}, {name:'space-3', px:'13.8px'},
+        {name:'space-4', px:'18.4px'}, {name:'space-6', px:'27.6px'}, {name:'space-8', px:'36.8px'},
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

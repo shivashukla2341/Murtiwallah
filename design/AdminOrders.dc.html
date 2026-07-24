@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/styles.css">
+  <script src="_ds/classical-feac7e4c-cf30-4ff4-8ce3-112a9538fe57/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; }
+    .adm-content { padding: 28px 32px 60px; }
+    .adm-toolbar { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+  </style>
+</helmet>
+<dc-import name="AdminShell" active="orders" hint-size="226px,100%"></dc-import>
+<div class="adm-body-offset">
+<main class="adm-content" id="main-content">
+  <h1 style="font-size: 24px; margin: 0 0 4px;">Orders</h1>
+  <p style="font-size: 13.5px; color: color-mix(in srgb, var(--color-text) 60%, transparent); margin: 0 0 20px;">1,842 orders this month</p>
+
+  <div class="card" style="padding: 20px;">
+    <div class="adm-toolbar">
+      <div class="seg" style="flex-wrap: wrap;">
+        <label class="seg-opt"><input type="radio" name="ostatus" checked />All</label>
+        <label class="seg-opt"><input type="radio" name="ostatus" />Pending</label>
+        <label class="seg-opt"><input type="radio" name="ostatus" />Processing</label>
+        <label class="seg-opt"><input type="radio" name="ostatus" />Shipped</label>
+        <label class="seg-opt"><input type="radio" name="ostatus" />Delivered</label>
+        <label class="seg-opt"><input type="radio" name="ostatus" />Cancelled</label>
+        <label class="seg-opt"><input type="radio" name="ostatus" />Refunded</label>
+      </div>
+    </div>
+    <table class="table">
+      <thead><tr><th>Order</th><th>Customer</th><th>Date</th><th>Items</th><th>Amount</th><th>Status</th><th>Invoice</th></tr></thead>
+      <tbody>
+        <tr><td>#MW-4471</td><td>Ananya Rao</td><td>23 Jul</td><td>3</td><td>₹45,194</td><td><span class="tag tag-accent">Processing</span></td><td><a href="OrderTracking.dc.html" class="btn btn-ghost" style="padding: 4px 10px;">GST Invoice</a></td></tr>
+        <tr><td>#MW-4470</td><td>Om Decor, Jaipur</td><td>23 Jul</td><td>24</td><td>₹2,18,000</td><td><span class="tag tag-neutral">Confirmed</span></td><td><a href="OrderTracking.dc.html" class="btn btn-ghost" style="padding: 4px 10px;">GST Invoice</a></td></tr>
+        <tr><td>#MW-4469</td><td>Dharma Exports LLC</td><td>22 Jul</td><td>180</td><td>₹9,40,500</td><td><span class="tag tag-outline">Shipped</span></td><td><a href="OrderTracking.dc.html" class="btn btn-ghost" style="padding: 4px 10px;">GST Invoice</a></td></tr>
+        <tr><td>#MW-4468</td><td>Shree Siddhivinayak Trust</td><td>21 Jul</td><td>12</td><td>₹1,12,300</td><td><span class="tag tag-neutral">Delivered</span></td><td><a href="OrderTracking.dc.html" class="btn btn-ghost" style="padding: 4px 10px;">GST Invoice</a></td></tr>
+        <tr><td>#MW-4467</td><td>Rakesh Mehta</td><td>21 Jul</td><td>1</td><td>₹6,750</td><td><span class="tag tag-accent">Pending</span></td><td><a href="OrderTracking.dc.html" class="btn btn-ghost" style="padding: 4px 10px;">GST Invoice</a></td></tr>
+        <tr><td>#MW-4466</td><td>Priya Nair</td><td>20 Jul</td><td>2</td><td>₹9,200</td><td><span class="tag tag-outline">Cancelled</span></td><td><a href="OrderTracking.dc.html" class="btn btn-ghost" style="padding: 4px 10px;">GST Invoice</a></td></tr>
+        <tr><td>#MW-4465</td><td>Kalyan Interiors</td><td>19 Jul</td><td>8</td><td>₹88,400</td><td><span class="tag tag-outline">Refunded</span></td><td><a href="OrderTracking.dc.html" class="btn btn-ghost" style="padding: 4px 10px;">GST Invoice</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+
+</script>
+</body>
+</html>
